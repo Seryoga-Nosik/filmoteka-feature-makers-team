@@ -1,0 +1,30 @@
+/* Базовые стили */
+body {
+  font-family: $main-font-family;
+  letter-spacing: 0.03em;
+  color: $main-bg-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  display: block;
+}
+
+/* unordered list */
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+

@@ -1,0 +1,17 @@
+/* Контейнер */
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (min-width: $mobile) {
+    width: 280px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 618px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 882px;
+  }
+}

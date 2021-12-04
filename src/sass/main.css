@@ -1,0 +1,103 @@
+@charset "UTF-8";
+/*
+ * Главный файл стилей.
+ * Все паршалы подключаются сюда.
+ */
+/* Спрятанные заголовки */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+/* roboto-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/roboto-v29-latin_cyrillic-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/roboto-v29-latin_cyrillic-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v29-latin_cyrillic-regular.woff2") format("woff2"), url("../fonts/roboto-v29-latin_cyrillic-regular.woff") format("woff"), url("../fonts/roboto-v29-latin_cyrillic-regular.ttf") format("truetype"), url("../fonts/roboto-v29-latin_cyrillic-regular.svg#Roboto") format("svg");
+  /* Legacy iOS */
+}
+
+/* roboto-500 - latin_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/roboto-v29-latin_cyrillic-500.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/roboto-v29-latin_cyrillic-500.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v29-latin_cyrillic-500.woff2") format("woff2"), url("../fonts/roboto-v29-latin_cyrillic-500.woff") format("woff"), url("../fonts/roboto-v29-latin_cyrillic-500.ttf") format("truetype"), url("../fonts/roboto-v29-latin_cyrillic-500.svg#Roboto") format("svg");
+  /* Legacy iOS */
+}
+
+/* Базовые стили */
+body {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  display: block;
+}
+
+/* unordered list */
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Контейнер */
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 320px) {
+  .container {
+    width: 280px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 618px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 882px;
+  }
+}
+
+/* Main content - Section */
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
