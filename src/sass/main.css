@@ -3,7 +3,7 @@
  * Главный файл стилей.
  * Все паршалы подключаются сюда.
  */
-/* Спрятанные заголовки */
+/* Hidden element */
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -34,7 +34,7 @@
   /* Legacy iOS */
 }
 
-/* Базовые стили */
+/* Basic styles */
 body {
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.03em;
@@ -64,7 +64,6 @@ ul {
   list-style: none;
 }
 
-/* Контейнер */
 .container {
   width: 100%;
   margin: 0 auto;
