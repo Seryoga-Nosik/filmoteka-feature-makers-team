@@ -1,0 +1,28 @@
+.header{
+  padding: 46px 0 97px 0;
+    padding-top: 46px;
+    padding-bottom: 97px;
+    background-image: linear-gradient(to right,
+      $backdrop-bg-color,
+      $backdrop-bg-color),
+    url(../images/header/mobile/header_home-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.site-nav{
+display: flex;
+}
+
+.site-nav__logo--logo-part{
+  display: none;
+}
+
+.site-nav__link{
+  color: $white-text-color;
+ font-weight: 500;
+ font-size: 12px;
+ line-height: 14px;
+ text-transform: uppercase;
+}
