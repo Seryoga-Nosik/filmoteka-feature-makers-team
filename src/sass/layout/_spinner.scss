@@ -1,0 +1,46 @@
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.56);
+    z-index: 2;
+    transition: 1s all;
+    opacity: 0.95;
+    visibility: visible;
+    .loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 120px;
+      height: 120px;
+      border: 16px solid var(--accent-color);
+      border-radius: 50%;
+      border-top: 16px solid var(--accent-color);
+      border-bottom: 16px solid transparent;
+      -webkit-animation: spin 3s linear infinite;
+      animation: spin 3s linear infinite;
+      transform: translate(-50%, -50%);
+    }
+    &.done {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
