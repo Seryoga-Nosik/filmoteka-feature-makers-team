@@ -1,5 +1,7 @@
 .header{
   padding: 46px 0 97px 0;
+  background-color: $header-bg-color;
+  
   background-image: linear-gradient(to right,
     $backdrop-bg-color,
     $backdrop-bg-color),
@@ -93,11 +95,12 @@ margin-right: 39px;
 }
 
 .site-nav-list__item{
+  position: relative;
   display: flex;
   align-items: flex-end;
-  &--current{
-    border-bottom: 3px solid $element-bg-color;
-  }
+  // &--current{
+  //   border-bottom: 3px solid $element-bg-color;
+  // }
 }
 
 .site-nav-list__link{
@@ -107,6 +110,16 @@ margin-right: 39px;
  line-height: 14px;
  text-transform: uppercase;
  
+ &--current::after {
+  display: inline-block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: $element-bg-color;
+}
 }
 
 .form-search{
