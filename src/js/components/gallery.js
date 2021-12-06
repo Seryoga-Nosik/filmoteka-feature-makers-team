@@ -1,12 +1,14 @@
-import axios from 'axios';
-import cardTemplate from '../template/film-card.hbs'
-import  {cards}  from '../js/gallery-items';
-console.log(cards)
+import '../../sass/main.scss'
+import cardTemplate from '../../template/film-card.hbs'
+import  {cards}  from './gallery-items';
+
 const gallery = document.querySelector('.gallery');
-console.log(gallery);
+// console.log(gallery);
 const markup = cardTemplate(cards);
-console.log(cardTemplate(cards))
-gallery.insertAdjacentHTML('beforeend', markup)
+// console.log(cardTemplate(cards))
+gallery.insertAdjacentHTML('beforeend', markup ) 
+
+
 
 
 // const fetchMovie  = () => { 

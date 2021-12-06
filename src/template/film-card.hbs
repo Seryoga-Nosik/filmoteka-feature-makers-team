@@ -1,16 +1,20 @@
  {{#each this}}
- <div id= "{{id}}" class="card">
-     <img srcset="{{doubleDesctopImage}},{{desctopImage}}" src="{{ desctopImage }}" width="320" height="240" alt="{{discription}}"/>
- 
- <h2 class="card__title">{{Original_title}}</h2>
- 
+ <div class="card" id= {{id}}  >
+     <img srcset="{{doubleImage}}, {{image}}"  src="{{image}}"  alt="{{discription}}"/>
+  <div class="card__info info">
+ <h2 class="info__title">{{Original_title}}</h2>
+ <div class="info__genres ">
  <ul class="genres">
 {{#each genres}} 
  <li class="genres__item">{{genre}}</li>
  {{/each}}
- </ul>
+  </ul>
+
  
- <P class="card__date">{{release_date}}</P>
+ <p class="card__date">{{release_date}}</p>
+ </div>
+ 
+ </div>
 </div>
 {{/each}}
  
