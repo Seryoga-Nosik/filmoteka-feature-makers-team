@@ -6,7 +6,7 @@ const gallery = document.querySelector('.gallery');
 // console.log(gallery);
 const markup = cardTemplate(cards);
 // console.log(cardTemplate(cards))
-gallery.insertAdjacentHTML('beforeend', markup ) 
+gallery.insertAdjacentHTML('beforeend', markup)  ;
 
 
 

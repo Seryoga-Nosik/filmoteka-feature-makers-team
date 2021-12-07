@@ -1,7 +1,7 @@
 export const cards = [
   {
-    image: '../../images/Rectangle 5 1024.jpg',
-    doubleImage: '../../images/Rectangle 5@2 1024.jpg 2x',
+    image: '/Bg (2).jpg',
+    doubleImage: '/src/js/components/Bg (1) (1)x2.jpg 2x',
     discription: 'Greyhound',
     Original_title: 'Greyhound',
 
@@ -37,8 +37,8 @@ export const cards = [
   {
     image: '../images/Rectangle 13.jpg',
     doubleImage: '../images/Rectangle 13@2  320.jpg x2',
-    discription: 'Once upon a time... in Hollywood',
-    Original_title: 'Once upon a time...in Hollywood',
+    discription:'Once upon a time... in Hollywood',
+    Original_title:'Once upon a time...in Hollywood',
 
     genres: [
       {

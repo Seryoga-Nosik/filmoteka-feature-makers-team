@@ -1,8 +1,8 @@
 
 img{
-    display: block;
+    // display: block;
     outline: 1px solid green;
-
+width: 100%;
     height: 398px;
 }
 
@@ -10,17 +10,17 @@ img{
 
 
 .gallery {
+   
     display: grid;
-    max-width: 320px;
-    // outline: 1px solid yellow;
+    
    grid-template-columns: 290px;
 grid-template-rows:  repeat(20, 443px);
-row-gap: 20px;
+
 }
 
 .card {
-   
-    margin: auto;
+//    outline: 1px solid red;
+    // margin-bottom: 30px;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
     // border: 1px solid black;
@@ -35,12 +35,12 @@ row-gap: 20px;
  }
  
  .card__info {
-     margin-bottom: 20px;
+     
      margin-top: 10px;
 
      font-family: Roboto;
 font-style: normal;
-font-weight: 500;
+font-weight: 400;
 font-size: 12px;
 line-height: 14px;
 text-transform: uppercase;
@@ -61,24 +61,30 @@ text-transform: uppercase;
     content: ','; 
 margin-right: 5px; 
 }
+.genres__item:last-child:after {
+content: '|';
+margin-left: 5px;
+margin-right: 5px;
+}
 
 
 
-.card__date::before {
-    content: '|';
-    margin-right: 5px;
+// .card__date::before {
+//     content: '|';
+//     margin-right: 5px;
     
 
-}
+// }
 
 @media screen and (min-width: 768px) {
     .gallery {
         display: grid;
         
+        
         // outline: 1px solid yellow;
        grid-template-columns: 293px 293px;
     grid-template-rows:  repeat(10, 398px);
-    row-gap: 20px;
+    // row-gap: 20px;
     }
 }
 
@@ -89,7 +95,8 @@ margin-right: 5px;
         // outline: 1px solid yellow;
        grid-template-columns: 274px 274px 274px;
     grid-template-rows:  repeat(7, 398px);
-    gap: 30px;
+    grid-row-gap: 50px;
+    grid-column-gap: 30px ;
     }
 }
 
