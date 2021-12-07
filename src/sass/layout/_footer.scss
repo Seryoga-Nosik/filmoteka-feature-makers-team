@@ -5,3 +5,30 @@
     padding: 28.71px 0 29.7px 0;
     background-color: $footer-bg-color;
 }
+
+.footer-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text{
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: $gray-text-color ;
+    &:not(:last-child){
+        margin-bottom: 10px;
+    }
+      @media screen and (min-width: 768px) {
+          font-size: 16px;
+        &:not(:last-child) {
+          margin-bottom: 0;
+          margin-right: 4px;
+      }
+    }
+}
+
+.footer-img{
+    margin: 0 8px;
+}
