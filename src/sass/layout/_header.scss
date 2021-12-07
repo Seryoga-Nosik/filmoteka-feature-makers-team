@@ -1,5 +1,5 @@
 .header{
-  padding: 46px 0 97px 0;
+  padding: 0 0 97px 0;
   background-color: $header-bg-color;
   
   background-image: linear-gradient(to right,
@@ -12,27 +12,26 @@
   @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-     background-image: linear-gradient(to right,
-       $backdrop-bg-color,
-       $backdrop-bg-color),
-      url(../images/header/mobile/header_home@2x-mobile.jpg);
+    background-image: linear-gradient(to right,
+    $backdrop-bg-color,
+    $backdrop-bg-color),
+    url(../images/header/mobile/header_home@2x-mobile.jpg);
   }
-    @media screen and (min-width: 768px) {
-      background-image: linear-gradient(to right,
-        $backdrop-bg-color,
-        $backdrop-bg-color),
-        url(../images/header/tablet/header_home-tablet.jpg);
-
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(to right,
+    $backdrop-bg-color,
+    $backdrop-bg-color),
+    url(../images/header/tablet/header_home-tablet.jpg);
       @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-        background-image: linear-gradient(to right,
-          $backdrop-bg-color,
-          $backdrop-bg-color),
-          url(../images/header/tablet/header_home@2x-tablet.jpg);
+      background-image: linear-gradient(to right,
+      $backdrop-bg-color,
+      $backdrop-bg-color),
+      url(../images/header/tablet/header_home@2x-tablet.jpg);
       }
     }
-        @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
           background-image: linear-gradient(to right,
               $backdrop-bg-color,
               $backdrop-bg-color),
@@ -53,6 +52,28 @@
   flex-wrap: wrap;
 }
 
+.registration{
+ margin-bottom: 27px;
+}
+
+.registration-list{
+  display: flex;
+  justify-content: flex-end;
+   &__item:not(:last-child) {
+     margin-right: 10px;
+   }
+}
+
+.registration-list__link{
+  font-family: 'Roboto';
+  font-size: 12px;
+  color: $white-text-color;
+  &:hover,
+  &:focus{
+    color: $orange-text-color;
+  }
+}
+
 .site-nav {
   display: flex;
   margin-bottom: 41px;
@@ -60,6 +81,7 @@
     margin-bottom: 37px;
   }
 }
+
 .logo{
   margin-right: 112px;
   @media screen and (min-width: 768px) {
@@ -98,13 +120,11 @@ margin-right: 39px;
   position: relative;
   display: flex;
   align-items: flex-end;
-  // &--current{
-  //   border-bottom: 3px solid $element-bg-color;
-  // }
 }
 
 .site-nav-list__link{
-  color: $white-text-color;
+ font-family: 'Roboto';
+ color: $white-text-color;
  font-weight: 500;
  font-size: 12px;
  line-height: 14px;
@@ -136,7 +156,9 @@ margin-right: 39px;
   background-color: rgba(0,0,0,0);
   border: none;
   border-bottom: 0.5px solid $white-text-color;
-  
+  color: $white-text-color;
+  font-family: 'Roboto';
+  font-size: 14px;
 }
 
 ::placeholder {
