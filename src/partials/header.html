@@ -1,9 +1,19 @@
-<header class="header">
+<header class="header home-header">
   <div class="container header-container">
     <div class="registration">
       <ul class="registration-list">
-        <li class="registration-list__item"><a href="" class="registration-list__link">log in</a></li>
-        <li class="registration-list__item"><a href="" class="registration-list__link">sign in</a></li>
+        <li class="registration-list__item">
+          <a href="" class="registration-list__link">
+            <svg class="registration-icon" width="30" height="30">
+              <use href="./images/header/icons.svg#registration-icon"></use>
+            </svg>
+          </a></li>
+        <li class="registration-list__item">
+          <a href="" class="registration-list__link">
+            <svg class="login-icon" width="32" height="32">
+              <use href="./images/header/icons.svg#login-icon"></use>
+            </svg>
+          </a></li>
       </ul>
     </div>
     <nav class="site-nav">
@@ -15,26 +25,15 @@
       </a>
       <ul class="site-nav-list">
         <li class="site-nav-list__item">
-          <a class="site-nav-list__link site-nav-list__link--current" href="#">Home</a>
+          <a class="site-nav-list__link home-link is-current" href="#">Home</a>
         </li>
         <li class="site-nav-list__item">
-          <a class="site-nav-list__link" href="#">my library</a>
+          <a class="site-nav-list__link my-library-link" href="#">my library</a>
         </li>
       </ul>
     </nav>
-    <form class="form-search" id="form-search">
-      <input
-        class="form-search__input"
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Поиск фильмов"
-      />
-      <button class="form-search__button" type="submit">
-        <svg width="12" height="12">
-          <use href="./images/header/icons.svg#icon-search"></use>
-        </svg>
-      </button>
-    </form>
+
+    <!-- Changeable content -->
+    <div class="changeable-block"></div>
   </div>
 </header>
