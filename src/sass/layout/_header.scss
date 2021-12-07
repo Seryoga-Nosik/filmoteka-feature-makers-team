@@ -1,7 +1,12 @@
-.header{
-  padding: 0 0 97px 0;
+.header {
+  padding: 46px 0 97px;
+  font-family: 'Roboto';
+  color: $white-text-color;
   background-color: $header-bg-color;
-  
+}
+
+// Home
+.home-header{  
   background-image: linear-gradient(to right,
     $backdrop-bg-color,
     $backdrop-bg-color),
@@ -48,40 +53,83 @@
         }
 }
 
-.header-container{
+// My Library
+.my-lib-header {
+  background-image: linear-gradient(to right,
+    $backdrop-bg-color,
+    $backdrop-bg-color),
+  url(../images/header/mobile/header_my_lib-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+    background-image: linear-gradient(to right,
+    $backdrop-bg-color,
+    $backdrop-bg-color),
+    url(../images/header/mobile/header_my_lib@2x-mobile.jpg);
+  }
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(to right,
+    $backdrop-bg-color,
+    $backdrop-bg-color),
+    url(../images/header/tablet/header_my_lib-tablet.jpg);
+      @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right,
+      $backdrop-bg-color,
+      $backdrop-bg-color),
+      url(../images/header/tablet/header_my_lib@2x-tablet.jpg);
+      }
+    }
+  @media screen and (min-width: 1024px) {
+          background-image: linear-gradient(to right,
+              $backdrop-bg-color,
+              $backdrop-bg-color),
+            url(../images/header/desktop/header_my_lib-desktop.jpg);
+
+          @media (min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right,
+                $backdrop-bg-color,
+                $backdrop-bg-color),
+              url(../images/header/desktop/header_my_lib@2x-desktop.jpg);
+          }
+        }
+}
+
+.header-container {
   flex-wrap: wrap;
 }
 
-.registration{
+// Login & Registration
+.registration {
  margin-bottom: 27px;
 }
 
-.registration-list{
+.registration-list {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
    &__item:not(:last-child) {
      margin-right: 10px;
    }
 }
 
-.registration-list__link{
-  font-family: 'Roboto';
-  font-size: 12px;
-  color: $white-text-color;
-  &:hover,
-  &:focus{
-    color: $orange-text-color;
+.registration-icon,
+.login-icon {
+  fill: $white-text-color;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    fill: $orange-text-color;
   }
 }
 
-.site-nav {
-  display: flex;
-  margin-bottom: 41px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 37px;
-  }
-}
-
+// Logo
 .logo{
   margin-right: 112px;
   @media screen and (min-width: 768px) {
@@ -101,7 +149,6 @@
   @media screen and (min-width: 768px){
     display: block;
     margin-left: 10px;
-    font-family: 'Roboto';
     font-size: 30px;
     line-height: 1.17;
     font-weight: 500;
@@ -109,28 +156,41 @@
   }
 }
 
-.site-nav-list{
+// Navigation menu
+.site-nav {
   display: flex;
-  &__item:not(:last-child){
-margin-right: 39px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 41px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 37px;
   }
 }
 
-.site-nav-list__item{
-  position: relative;
+.site-nav-list {
   display: flex;
-  align-items: flex-end;
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  &__item:not(:last-child) {
+    margin-right: 39px;
+  }
+
+  &__link {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $white-text-color;
+  }
 }
 
-.site-nav-list__link{
- font-family: 'Roboto';
- color: $white-text-color;
- font-weight: 500;
- font-size: 12px;
- line-height: 14px;
- text-transform: uppercase;
- 
- &--current::after {
+// Current Link
+.is-current::after {
   display: inline-block;
   position: absolute;
   bottom: -3px;
@@ -140,37 +200,80 @@ margin-right: 39px;
   height: 3px;
   background-color: $element-bg-color;
 }
-}
 
-.form-search{
+// Search input field
+.form-search {
   text-align: center;
   position: relative;
     @media screen and (min-width: 768px) {
       width: 336px;
       margin: 0 auto;
     }
+
+    &__input{
+      width: 100%;
+      background-color: rgba(0,0,0,0);
+      border: none;
+      border-bottom: 0.5px solid $white-text-color;
+      color: $white-text-color;
+      font-size: 14px;
+    }
+
+    &__input::placeholder {
+      color: $white-text-color;
+      font-size: 14px;
+      line-height: 1.48;
+    }
+
+    &__button {
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+      position: absolute;
+      right: -5px;
+    }
 }
 
-.form-search__input{
-  width: 100%;
-  background-color: rgba(0,0,0,0);
-  border: none;
-  border-bottom: 0.5px solid $white-text-color;
-  color: $white-text-color;
-  font-family: 'Roboto';
-  font-size: 14px;
+// My Library - Block with buttons
+.changeable-block {
+  & .button {
+    display: inline-block;
+    min-width: 130px;
+    padding: 14px 38px 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: $white-text-color;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  
+    @media screen and (max-width: 768px) {
+      padding: 14px 36px 12px;
+    }
+  }
+
+  & .primary-button {
+    margin-right: 15px;
+    border: none;
+    background-color: $orange-btn-color;
+
+    &:hover {
+      background-color: #fc944a;
+    }
+  }
+
+  & .secondary-button {
+    border: 1px solid $main-bg-color;
+    background-color: rgba(145, 145, 145, 0.25);
+
+    &:hover {
+      background-color: rgba(228, 228, 228, 0.25);
+    }
+  }
 }
 
-::placeholder {
-  color: $white-text-color;
-  font-size: 14px;
-  line-height: 1.48;
-  // opacity: 1;
-}
-
-.form-search__button{
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
-  position: absolute;
-  right: -5px;
+.buttons-block {
+  display: flex;
+  justify-content: center;
 }
