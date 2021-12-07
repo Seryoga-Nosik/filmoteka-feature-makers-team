@@ -1,7 +1,7 @@
  
  {{#each this}}
  <div class="card" id= {{id}}  >
-     <img srcset="{{doubleImage}}, {{image}}"  src="{{image}}"  alt="{{discription}}"/>
+     <img class="card__img"  src="{{{image}}}"  alt="{{discription}}"/>
   <div class="card__info info">
  <h2 class="info__title">{{Original_title}}</h2>
  <div class="info__genres ">
@@ -18,4 +18,5 @@
  </div>
 </div>
 {{/each}}
+
  
