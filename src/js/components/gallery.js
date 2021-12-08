@@ -1,5 +1,5 @@
 import cardTemplate from '../../template/film-card.hbs';
-import { cards } from './gallery-items';
+// import { cards } from './gallery-items';
 
 const gallery = document.querySelector('.gallery');
 console.log('gallery', gallery);
