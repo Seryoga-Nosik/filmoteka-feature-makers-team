@@ -1,6 +1,4 @@
 import getRefs from '../refs';
-import searchInputTpl from '../../template/input-search';
-import buttonsBlockTpl from '../../template/buttons-block';
 
 const refs = getRefs();
 
@@ -58,8 +56,26 @@ function checkCurrentPage() {
     refs.changeableBlock.innerHTML = '';
 
     if (refs.homeLink.classList.contains('is-current')) {
-        refs.changeableBlock.insertAdjacentHTML("beforeend", searchInputTpl());
+        const searchMarkup = `<form class="form-search" id="form-search">
+        <input
+          class="form-search__input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Поиск фильмов"
+        />
+        <button class="form-search__button" type="submit">
+          <svg width="12" height="12">
+            <use href="./images/header/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+        </form>`
+        refs.changeableBlock.insertAdjacentHTML("beforeend", searchMarkup);
     } else {
-        refs.changeableBlock.insertAdjacentHTML("beforeend", buttonsBlockTpl());
+        const buttonsMarkup = `<div class="buttons-block">
+        <button type="button" class="button primary-button">Watched</button>
+        <button type="button" class="button secondary-button">Queue</button>
+        </div>`
+        refs.changeableBlock.insertAdjacentHTML("beforeend", buttonsMarkup);
     }
 }
