@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://seryoga-nosik.github.io/filmoteka-feature-makers-team",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "parcel src/*.html --open",
     "build": "parcel build src/*.html --public-url /filmoteka-feature-makers-team/"
   },
   "repository": {
