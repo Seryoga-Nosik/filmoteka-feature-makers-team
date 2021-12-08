@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 // import '../../sass/main.scss'
 import cardTemplate from '../../template/film-card.hbs'
 import  {cards}  from './gallery-items';
+=======
+import cardTemplate from '../../template/film-card.hbs';
+import { cards } from './gallery-items';
+>>>>>>> dev
 
 const gallery = document.querySelector('.gallery');
+console.log('gallery', gallery);
 // console.log(gallery);
 const markup = cardTemplate(cards);
+console.log('markup', markup);
 // console.log(cardTemplate(cards))
+<<<<<<< HEAD
 gallery.insertAdjacentHTML('beforeend', markup)  ;
 
 
@@ -19,3 +27,6 @@ gallery.insertAdjacentHTML('beforeend', markup)  ;
 // fetchMovie().then(data => console.log(data.data))
 
 
+=======
+gallery.insertAdjacentHTML('beforeend', markup);
+>>>>>>> dev
