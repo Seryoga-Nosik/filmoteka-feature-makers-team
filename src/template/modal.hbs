@@ -3,9 +3,9 @@
 
 </div>
 
-<div class='card__info'>
+<div class='card__wrapper'>
     <h2 class='card__name'>{{title}}</h2>
-    <ul class='card__wrapper'>
+    <ul class='card__list'>
         <li class='card__item card__parameter--votes'>
             <p class='item__label'>Vote / Votes</p>
             <p class='item__value item__value--avg'>{{vote_average}}</p>
@@ -20,12 +20,12 @@
             <p class='item__label'>Original Title</p>
             <p class='item__value'>{{title}}</p>
         </li>
-        <li class='card__parameter card__parameter--genres'>
+        <li class='card__item card__parameter--genres'>
             <p class='item__label'>Genre</p>
-            <p class='item__value'>
-                {{#each genres_type}}
+            <p class='item__value'> {{genres_type}}
+                {{!-- {{#each genres_type}}
                 <span>{{this}}</span><span class='comma'>,</span>
-                {{/each}}
+                {{/each}} --}}
             </p>
         </li>
     </ul>
@@ -38,11 +38,11 @@
     <div class='modal-form__buttons'>
         <button class='btn modal-form__btn' type='button' id='btn-add-watched' data-lib='Watched'
             data-textcont='add to watched' data-textlib='watched'>
-            add to watched
+            ADD TO WATCHED
         </button>
         <button class='btn modal-form__btn' type='button' id='btn-add-to-queue' data-lib='Queue'
             data-textcont='add to queue' data-textlib='in queue'>
-            add to queue
+            ADD TO QUEUE
         </button>
     </div>
 
