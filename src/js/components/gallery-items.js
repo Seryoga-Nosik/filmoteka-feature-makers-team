@@ -1,7 +1,7 @@
 export const cards = [
   {
-    image: '../../images/Rectangle 5@2 1024.jpg',
-    doubleImage: '../images/Rectangle 5@2 1024.jpeg 2x',
+    image: './images/rec_5.jpg',
+    doubleImage: 'rec_5_@2.jpg 2x',
     discription: 'Greyhound',
     Original_title: 'Greyhound',
 

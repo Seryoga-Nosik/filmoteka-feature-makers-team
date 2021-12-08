@@ -1,4 +1,4 @@
-import '../../sass/main.scss'
+// import '../../sass/main.scss'
 import cardTemplate from '../../template/film-card.hbs'
 import  {cards}  from './gallery-items';
 
