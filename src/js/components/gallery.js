@@ -3,8 +3,7 @@ import { cards } from './gallery-items';
 
 const gallery = document.querySelector('.gallery');
 console.log('gallery', gallery);
-// console.log(gallery);
 const markup = cardTemplate(cards);
-console.log('markup', markup);
+// console.log('markup', markup);
 // console.log(cardTemplate(cards))
 gallery.insertAdjacentHTML('beforeend', markup);
