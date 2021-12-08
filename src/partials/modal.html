@@ -1,10 +1,12 @@
-<div class="backdrop is-hidden">
+<div class="backdrop">
   <div class="overlay">
     <form class="modal-form">
-      <div class="modal-form__card">
-        <!-- Шаблон карточки для модалки -->
-      </div>
-      <button type="button" class="modal-form__close-btn" data-menu-close></button>
+      <div class="modal-form__card"></div>
+      <button type="button" class="modal-form__close-btn" data-menu-close>
+        <svg class="modal__close-btn-icon">
+          <use href="./images/modal/symbol-defs.svg#icon-cross"></use>
+        </svg>
+      </button>
     </form>
   </div>
 </div>
