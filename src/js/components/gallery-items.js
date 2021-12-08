@@ -35,7 +35,7 @@ export const cards = [
   },
 
   {
-    image: '../../images/Rectangle-13-1024.jpg',
+    image: './images/Rectangle-13-1024.jpg',
     doubleImage: '../../images/Rectangle-13@2-1024.jpg x2',
     discription: 'Once upon a time... in Hollywood',
     Original_title: 'Once upon a time...in Hollywood',
@@ -53,7 +53,7 @@ export const cards = [
   },
 
   {
-    image: '../../images/Rectangle-14-1024.jpg',
+    image: './images/Rectangle-14-1024.jpg',
     doubleImage: '../../images/Rectangle-14@2-1024.jpg 2x',
 
     Original_title: 'Little women',
@@ -68,7 +68,7 @@ export const cards = [
   },
 
   {
-    image: '../../images/Rectangle-15-1024.jpg',
+    image: './images/Rectangle-15-1024.jpg',
     doubleImage: '../../images/Rectangle-15@2-1024.jpg 2x',
     Original_title: 'Aquarela',
 
