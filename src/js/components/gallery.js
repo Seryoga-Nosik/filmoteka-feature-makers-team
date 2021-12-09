@@ -3,7 +3,7 @@ import cardTemplate from '../../template/film-card.hbs';
 
 const gallery = document.querySelector('.gallery');
 console.log('gallery', gallery);
-const markup = cardTemplate(cards);
+// const markup = cardTemplate(cards);
 // console.log('markup', markup);
 // console.log(cardTemplate(cards))
-gallery.insertAdjacentHTML('beforeend', markup);
+// gallery.insertAdjacentHTML('beforeend', markup);
