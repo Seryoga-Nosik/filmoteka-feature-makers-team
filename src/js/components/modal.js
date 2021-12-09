@@ -8,10 +8,7 @@ const overlay = document.querySelector('.overlay');
 const backdrop = document.querySelector('.backdrop');
 const clsBtn = document.querySelector('.modal-form__close-btn');
 
-
-const modalItem = {
-  poster: './images/Rectangle-18-1024.jpg',
-
+<
   title: 'A FISTFUL OF LEAD',
   vote_average: '7.3',
   vote_count: '1260',
