@@ -1,11 +1,13 @@
 import modalTpl from '../../template/modal.hbs';
 
+const body = document.querySelector('body');
 const gallery = document.querySelector('.gallery');
 const modal = document.querySelector('.modal-form');
 const modalСard = document.querySelector('.modal-form__card');
 const overlay = document.querySelector('.overlay');
 const backdrop = document.querySelector('.backdrop');
 const clsBtn = document.querySelector('.modal-form__close-btn');
+
 
 const modalItem = {
   poster: './images/Rectangle-18-1024.jpg',
@@ -30,5 +32,5 @@ const modalItem = {
 
 //   backdrop.classList.add('is-open');
 // }
-gallery.insertAdjacentHTML('beforeend', modalTpl(modalItem));
+body.insertAdjacentHTML('beforeend', modalTpl(modalItem));
 // gallery.addEventListener('click', onClickHandler);
