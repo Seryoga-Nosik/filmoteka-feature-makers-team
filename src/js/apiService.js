@@ -1,23 +1,19 @@
 import axios from 'axios';
 import { BASE_URL, API_KEY } from './constants';
-import noposter from '../images/no-poster.png';
 
 axios.defaults.baseURL = BASE_URL;
 
-export async function fetchMovies() {
+export async function fetchTrendingMovies() {
   try {
     const response = await axios.get(`/trending/movie/week?api_key=${API_KEY}`);
     const trendinMoviesData = await response.data;
-    // console.log('trendinMoviesData', trendinMoviesData);
     const trendinMovies = await trendinMoviesData.results;
-    // console.log('trendinMovies', trendinMovies);
     return trendinMovies;
-    // return response;
   } catch (error) {
     console.error(error);
   }
 }
-// fetchMovies().then(data => console.log(data));
+fetchTrendingMovies().then(data => console.log(data));
 
 export async function getGenres() {
   try {
@@ -27,15 +23,14 @@ export async function getGenres() {
     console.error(error);
   }
 }
-// getGenres().then(data => console.log(data));
+getGenres().then(data => console.log(data));
 
 export async function getMovieInfo(movie_id) {
   try {
     const movie = await axios.get(`/movie/${movie_id}?api_key=${API_KEY}&language=en-US`);
-    console.log('movie', movie);
-    return genres;
+    return movie;
   } catch (error) {
     console.error(error);
   }
 }
-getMovieInfo().then(data => console.log(data));
+getMovieInfo(512195).then(data => console.log(data));
