@@ -6,3 +6,4 @@ import './js/components/modal';
 import './js/components/theme';
 import './js/components/my-library';
 import './js/components/gallery';
+import './js/components/firebase/firebaseAuth';
