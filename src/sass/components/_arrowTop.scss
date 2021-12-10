@@ -1,0 +1,80 @@
+.uptop {
+  position: fixed;
+  display: block;
+  box-sizing: border-box;
+  height: 40px;
+  width: 40px;
+  border: none;
+  background-color: rgba(255, 107, 9, 0.5);
+  border-radius: 5px;
+  bottom: 40px;
+  right: 5px;
+  margin-right: -150px;
+  outline: none;
+  opacity: 0;
+  transition: all $transition-function ease-in-out, margin-right 0.5s ease-out;
+  cursor: pointer;
+  z-index: 10;
+
+  &:hover {
+    background-color: $orange-btn-color;
+    opacity: 1;
+
+    &::after,
+    &::before {
+      background-color: $white-text-color;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 2px;
+    background-color: $black-text-color;
+    top: 10px;
+    transition: all $transition-function ease-in-out;
+  }
+
+  &::before {
+    left: 13px;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    right: 13px;
+    transform: rotate(-45deg);
+  }
+
+  @media screen and (min-width: 768px) {
+    right: 40px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 50px;
+    height: 50px;
+    right: 50px;
+    bottom: 50px;
+
+    &::before,
+    &::after {
+      height: 22px;
+      top: 14px;
+    }
+
+    &::before {
+      left: 17px;
+    }
+
+    &::after {
+      right: 17px;
+    }
+  }
+}
+
+.upview {
+  transition: all $transition-function ease-in-out, margin-right 0.5s ease-out;
+  margin-right: 0px;
+  opacity: 0.7;
+}
