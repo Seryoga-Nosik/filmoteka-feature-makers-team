@@ -1,3 +1,4 @@
+
 .grid{
    padding-top: 60px; 
 }
@@ -6,12 +7,11 @@ img{
     // outline: 1px solid green;
 
     height: 398px;
+
 }
 
-
-
-
 .gallery {
+
    
     display: grid;
 //     // max-width: 320px;
@@ -59,6 +59,35 @@ img{
 
 }
 
+.card {
+  // margin: auto;
+  // box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+  // 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  // border: 1px solid black;
+  width: 280px;
+  height: 443px;
+  // margin-bottom: 100px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    transform: scale(1.035);
+  }
+}
+.card__image {
+  height: 398px;
+}
+
+
+.genres {
+  display: flex;
+}
+
+.card__info {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
 
  .genres {
      display: flex;
@@ -90,21 +119,42 @@ font-family: $main-font-family;
 .genres__item:not(:last-child):after {   
     content: ','; 
 margin-right: 5px; 
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+
 }
 
+.info__genres {
+  display: flex;
 
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: orangered;
+}
+.genres__item:not(:last-child):after {
+  content: ',';
+  margin-right: 5px;
+}
 
 .card__date::before {
-    content: '|';
-    margin-right: 5px;
-    margin-left: 5px;
-
+  content: '|';
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 // @media screen and (min-width: 768px) {
 //     .gallery {
 //         display: grid;
-        
+
 //         outline: 1px solid yellow;
 //        grid-template-columns: 293px 293px;
 //     grid-template-rows:  repeat(20, 398px);
@@ -116,7 +166,7 @@ margin-right: 5px;
 // @media screen and (min-width: 1024px) {
 //     .gallery {
 //         display: grid;
-        
+
 //         outline: 1px solid yellow;
 //        grid-template-columns: 274px 274px 274px;
 //     grid-template-rows:  repeat(20, 398px);
@@ -124,7 +174,3 @@ margin-right: 5px;
 //     column-gap: 30px;
 //     }
 // }
-
-
-
-

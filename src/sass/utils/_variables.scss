@@ -1,22 +1,24 @@
-
 // Font
 $main-font-family: 'Roboto', sans-serif;
 
 // Background color
 $header-bg-color: #000;
 $main-bg-color: #fff;
-$footer-bg-color: #F7F7F7;
+$footer-bg-color: #f7f7f7;
 $backdrop-bg-color: rgba(0, 0, 0, 0.25);
 
 // Text color
-$white-text-color:#fff;
+$white-text-color: #fff;
 $black-text-color: #000;
-$orange-text-color: #FF6B08;
-$red-text-color: #FF001B;
+$orange-text-color: #ff6b08;
+$red-text-color: #ff001b;
 $gray-text-color: #545454;
-$light-gray-text-color: #8C8C8C;
+$light-gray-text-color: #8c8c8c;
 
 // Element background color
-$orange-btn-color: #FF6B01;
-$element-bg-color: #FF6B08;
+$orange-btn-color: #ff6b01;
+$element-bg-color: #ff6b08;
 $logo-icon-color: #818181;
+
+$transition-function: 300ms;
+$timing-function: cubic-bezier(0.4, 0, 0.2, 1);
