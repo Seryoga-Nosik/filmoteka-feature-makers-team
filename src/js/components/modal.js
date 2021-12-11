@@ -1,9 +1,11 @@
 import getRefs from '../refs';
+import modalTpl from '../../template/modal.hbs';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/src/styles/main.scss';
 
 const refs = getRefs();
 
 refs.gallery.addEventListener('click', onClickHandler);
-refs.clsBtn.addEventListener('click', onCloseModal);
 
 function onClickHandler(e) {
   e.preventDefault();
@@ -12,9 +14,21 @@ function onClickHandler(e) {
     return;
   }
 
-  refs.overlay.classList.add('is-open');
-}
+  const markup = modalTpl();
+  const openModal = basicLightbox.create(markup);
+  openModal.show();
 
-function onCloseModal() {
-  refs.overlay.classList.remove('is-open');
+  refs.clsBtn.addEventListener('click', closeModalBtn);
+  function closeModalBtn() {
+    openModal.close();
+    window.removeEventListener('keydown', closeModalBtn);
+  }
+
+  window.addEventListener('keydown', closeModal);
+  function closeModal(e) {
+    if (e.code === 'Escape') {
+      openModal.close();
+      window.removeEventListener('keydown', closeModal);
+    }
+  }
 }

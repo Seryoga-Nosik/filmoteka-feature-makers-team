@@ -8,10 +8,8 @@ export default function getRefs() {
     changeableBlock: document.querySelector('.changeable-block'),
     gallery: document.querySelector('.gallery'),
     modal: document.querySelector('.modal-form'),
-    modalСard: document.querySelector('.modal-form__card'),
-    overlay: document.querySelector('.overlay'),
-    backdrop: document.querySelector('.backdrop'),
-    clsBtn: document.querySelector('.modal-form__close-btn'),
+    modalСard: document.querySelector('.modal__card'),
+    clsBtn: document.querySelector('.modal__close-btn'),
     toTopBtn: document.querySelector('.uptop'),
   };
 }
