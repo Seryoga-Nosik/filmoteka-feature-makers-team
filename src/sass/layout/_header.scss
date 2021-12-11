@@ -1,12 +1,14 @@
-.header {
-  padding: 50px 0 75px;
+.header-container {
+  padding-top: 50px; 
+  padding-bottom: 60px;
   font-family: 'Roboto';
   color: $white-text-color;
-  background-color: $header-bg-color;
 }
 
 // Home
-.home-header{  
+.header{  
+  background-size: contain;
+  background-color: $header-bg-color;
   background-image: linear-gradient(to right,
     $backdrop-bg-color,
     $backdrop-bg-color),
@@ -106,24 +108,31 @@
 }
 
 // Login & Registration
-.registration {
+.navigation {
  display: flex;
- justify-content: space-between;
  align-items: center;
  margin-bottom: 40px;
+
+ @media screen and (max-width: 768px) {
+  justify-content: space-between;
+ }
 }
 
-.registration-list {
+.auth-list {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
    &__item:not(:last-child) {
      margin-right: 10px;
    }
+
+   @media screen and (min-width: 768px) {
+    margin: 0 0 0 auto;
+   }
 }
 
-.registration-icon,
-.login-icon {
+.login-icon,
+.logout-icon {
   width: 25px;
   height: 25px;
   fill: $white-text-color;
@@ -140,17 +149,17 @@
 }
 
 // Logo
-.logo{
-  // margin-right: 112px;
+.logo {
+  // margin-right: 20px;
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    // margin-right: 303px;
+    margin-right: 75px;
   }
    @media screen and (min-width: 1024px) {
      display: flex;
      align-items: center;
-    //  margin-right: 565px;
+     margin-right: 210px;
    }
 }
 
@@ -171,10 +180,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // margin-bottom: 41px;
-  // @media screen and (min-width: 768px) {
-  //   margin-bottom: 37px;
-  // }
 }
 
 .site-nav-list {
