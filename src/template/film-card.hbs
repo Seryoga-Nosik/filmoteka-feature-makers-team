@@ -1,12 +1,12 @@
  {{#each this}}
- <div class="card" data-id= "{{id}}"  >
-     <img   src="{{largeImageURL}}"  alt="{{discription}}"/>
+ <li class="gallery__card">
+     <img   src="{{backdrop_path}}"  alt="{{discription}}"/>
   <div class="card__info info">
- <h2 class="info__title">{{user}}</h2>
+ <h3 class="info__title">{{original_title}}</h3>
  <div class="info__genres ">
  <ul class="genres">
-{{#each genres}} 
- <li class="genres__item">{{genre}}</li>
+{{#each genre_ids}} 
+ <li class="genres__item">{{this}}</li>
  {{/each}}
   </ul>
 
@@ -15,6 +15,7 @@
  </div>
  
  </div>
-</div>
+ </li>
 {{/each}}
+
  
