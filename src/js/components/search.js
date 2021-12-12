@@ -26,8 +26,9 @@ async function onSearch(event) {
 
     try {
         const movies = await getMoviesSearchQuery(inputData, 1);
+        // console.log(movies);
 
-        if (movies.length === 0) {
+        if (movies.totalResults === 0) {
             stopSpinner();
             onFetchError();
             refs.gallery.innerHTML = '';
@@ -35,12 +36,12 @@ async function onSearch(event) {
             return;
         }
 
-        onFetchSuccess(movies.length);
+        onFetchSuccess(movies.totalResults);
         runSpinner(); 
-        renderMovies(movies);
+        renderMovies(movies.normalizedMovies);
         stopSpinner();
         
-        if (movies.length <= 20) {
+        if (movies.normalizedMovies.length <= 20) {
             refs.pagination.classList.add('is-hidden');
         }
 
