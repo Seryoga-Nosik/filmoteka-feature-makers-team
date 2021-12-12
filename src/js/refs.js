@@ -7,7 +7,6 @@ export default function getRefs() {
     myLibraryLink: document.querySelector('.my-library-link'),
     changeableBlock: document.querySelector('.changeable-block'),
     searchBox: document.querySelector('.form-search__input'),
-    gridContainer: document.querySelector('.grid .container'),
     gallery: document.querySelector('.gallery'),
     modal: document.querySelector('.modal'),
     modalСard: document.querySelector('.modal__card'),
