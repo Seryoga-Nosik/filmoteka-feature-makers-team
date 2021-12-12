@@ -12,7 +12,7 @@ const dbRef = ref(db);
 // watcehd [425909, 522402, 664574]
 // queue [774741, 585245, 802217]
 
-function fetchWatchedFilms() {
+export function fetchWatchedFilms() {
   onAuthStateChanged(auth, user => {
     if (user) {
       console.log(user.displayName); //Test
@@ -22,7 +22,7 @@ function fetchWatchedFilms() {
   });
 }
 
-function fetchQueueFilms() {
+export function fetchQueueFilms() {
   onAuthStateChanged(auth, user => {
     if (user) {
       console.log(user.displayName); //Test
