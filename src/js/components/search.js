@@ -27,16 +27,15 @@ async function onSearch(event) {
     try {
         const movies = await getMoviesSearchQuery(inputData, 1);
 
-        if (movies.length >= 1) {
-            onFetchSuccess(movies.length);
-        } else {
+        if (movies.length === 0) {
             stopSpinner();
             onFetchError();
             refs.gallery.innerHTML = '';
             refs.pagination.classList.add('is-hidden');
             return;
-        } 
+        }
 
+        onFetchSuccess(movies.length);
         runSpinner(); 
         renderMovies(movies);
         stopSpinner();
