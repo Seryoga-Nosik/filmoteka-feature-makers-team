@@ -31,12 +31,13 @@ function onClickHandler(e) {
         }
       }
 
-      refs.clsBtn.addEventListener('click', closeModalByBtn);
+      getRefs().clsBtn.addEventListener('click', closeModalByBtn);
       function closeModalByBtn() {
         lightbox.close();
         window.removeEventListener('keydown', closeModalByBtn);
       }
     })
+
     .catch(error => {
       console.log(error);
     });
