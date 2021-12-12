@@ -2,6 +2,7 @@ import getRefs from '../refs';
 import modalTpl from '../../template/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/src/styles/main.scss';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 const refs = getRefs();
 

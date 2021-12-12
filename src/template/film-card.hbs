@@ -1,20 +1,23 @@
- {{#each this}}
- <div class="card" data-id= "{{id}}"  >
-     <img class="card__image" src="{{largeImageURL}}"  alt="{{discription}}"/>
-  <div class="card__info info">
- <h2 class="info__title">{{user}}</h2>
- <div class="info__genres ">
- <ul class="genres">
-{{#each genres}} 
- <li class="genres__item">{{genre}}</li>
- {{/each}}
-  </ul>
+{{#each this}}
+  <li class='gallery__card' data-id='{{id}}'>
+    <img
+      class='card__image'
+      src='{{poster_path}}'
+      alt='{{title}}'
+      data-source='https://image.tmdb.org/t/p/w500{{backdrop_path}}'
+    />
+    <div class='card__info info'>
+      <h2 class='info__title'>{{original_title}}</h2>
+      <div class='info__genres'>
+        <ul class='genres'>
+          {{#each genres}}
+            <li class='genres__item'>{{this}}</li>
+          {{/each}}
+        </ul>
+        <p class='card__date'>{{release_date}}</p>
+        <span class='film__vote_average'>{{vote_average}}</span>
+      </div>
 
- 
- <p class="card__date">{{release_date}}</p>
- </div>
- 
- </div>
-</div>
+    </div>
+  </li>
 {{/each}}
- 

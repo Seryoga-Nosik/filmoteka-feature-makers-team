@@ -10,6 +10,7 @@ export default function getRefs() {
     modal: document.querySelector('.modal-form'),
     modalСard: document.querySelector('.modal__card'),
     clsBtn: document.querySelector('.modal__close-btn'),
+    pagination: document.querySelector('.pagination-container'),
     toTopBtn: document.querySelector('.uptop'),
   };
 }

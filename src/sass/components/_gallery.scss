@@ -1,37 +1,33 @@
 .grid {
-   padding-top: 60px; 
+  padding-top: 60px;
 }
 
 .gallery {
-    display: grid;
-    justify-items: center;
-    justify-content: center;    
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(20, 443px);
-    grid-column-gap: 0px;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 293px);
+    grid-column-gap: 30px;
     grid-row-gap: 10px;
+  }
 
-    @media screen and (min-width: 768px) {
-        grid-template-columns: repeat(2, 293px);
-        grid-template-rows: repeat(10, 440px);
-        grid-column-gap: 30px;
-        grid-row-gap: 30px;
-    }
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 274px);
+  }
 
-    @media screen and (min-width: 1024px) {
-        grid-template-columns: repeat(3, 274px);
-        grid-template-rows: repeat(7, 440px);
-    }
+  &__card {
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &__card {
-      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
-      &:hover,
-      &:focus {
-          cursor: pointer;
-          transform: scale(1.035);
-      }
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      transform: scale(1.035);
     }
+  }
 }
 
 .card__image {
@@ -40,9 +36,16 @@
 
 .card__info {
   margin-bottom: 20px;
-  margin-top: 5px;
-  padding-bottom: 20px;
+  margin-top: 10px;
   font-family: $main-font-family;
+}
+.info__title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
 }
 
 .genres {
@@ -56,24 +59,32 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  text-transform: uppercase;
-  color:$orange-text-color;
+  // text-transform: uppercase;
+  color: $orange-text-color;
 }
 
-.genres__item:not(:last-child):after {   
-  content: ','; 
-  margin-right: 5px; 
+.genres__item:not(:last-child):after {
+  content: ',';
+  margin-right: 5px;
 
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 .card__date::before {
   content: '|';
   margin-right: 5px;
   margin-left: 5px;
+}
+
+.film__vote_average {
+  padding: 0 10px;
+  margin-left: 10px;
+  background-color: $orange-text-color;
+  color: $white-text-color;
+  border-radius: 5px;
 }

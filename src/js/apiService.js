@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { BASE_URL, API_KEY } from './constants';
+import noposter from '../images/no-poster.png';
 
 axios.defaults.baseURL = BASE_URL;
 
-export const genres = {};
 export let totalPages = 1;
 
 export async function getTrendingMovies() {
@@ -11,7 +11,8 @@ export async function getTrendingMovies() {
     const response = await axios.get(`/trending/movie/week?api_key=${API_KEY}`);
     const trendinMoviesData = await response.data;
     const trendinMovies = await trendinMoviesData.results;
-    return trendinMovies;
+    const normalizedMovies = await normalizer(trendinMovies);
+    return normalizedMovies;
   } catch (error) {
     console.error(error);
   }
@@ -21,6 +22,7 @@ export async function getTrendingMovies() {
 export async function getGenres() {
   try {
     const response = await axios.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+    const genres = {};
     response.data.genres.forEach(({ id, name }) => {
       genres[id] = name;
     });
@@ -39,7 +41,8 @@ export async function getMoviesSearchQuery(searchQuery, page) {
     const popularMoviesData = await response.data;
     const popularMovies = await popularMoviesData.results;
     totalPages = popularMoviesData.total_pages;
-    return popularMovies;
+    const normalizedMovies = await normalizer(popularMovies);
+    return normalizedMovies;
   } catch (error) {
     console.error(error);
   }
@@ -56,3 +59,33 @@ export async function getMovieInfo(movie_id) {
   }
 }
 // getMovieInfo(512195).then(data => console.log(data));
+
+async function normalizer(data) {
+  const moviesArr = await data;
+  const genresArr = await getGenres();
+
+  const updateMovie = movie => {
+    const MAX_GENRE_LENGTH = 20;
+    let genresLength = 0;
+    const genres = movie.genre_ids
+      .map(genreId => genresArr[genreId])
+      .filter(genreName => (genresLength += genreName.length) <= MAX_GENRE_LENGTH);
+    if (genresLength > MAX_GENRE_LENGTH) genres.push('others...');
+
+    let title = movie.title;
+    if (title.length > 40) {
+      title = movie.title.slice(0, 37) + '...';
+    }
+
+    const release_date = movie.release_date ? movie.release_date.split('-')[0] : 'NA';
+
+    const poster_path = movie.poster_path
+      ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path
+      : noposter;
+    const movieUpdate = { ...movie, title, genres, release_date, poster_path };
+    return movieUpdate;
+  };
+
+  const updatedMoviesarr = moviesArr.map(updateMovie);
+  return updatedMoviesarr;
+}
