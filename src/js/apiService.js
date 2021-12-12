@@ -38,11 +38,16 @@ export async function getMoviesSearchQuery(searchQuery, page) {
     const response = await axios.get(
       `/search/movie?api_key=${API_KEY}&page=${page}&language=en&query=${searchQuery}`,
     );
+    const totalResults = await response.data.total_results;
     const popularMoviesData = await response.data;
     const popularMovies = await popularMoviesData.results;
     totalPages = popularMoviesData.total_pages;
     const normalizedMovies = await normalizer(popularMovies);
-    return { normalizedMovies, popularMovies };
+
+    return { totalResults, normalizedMovies, popularMovies };
+
+
+
   } catch (error) {
     console.error(error);
   }
