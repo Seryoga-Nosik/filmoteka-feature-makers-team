@@ -41,7 +41,7 @@ async function onSearch(event) {
         renderMovies(movies.normalizedMovies);
         stopSpinner();
         
-        if (movies.normalizedMovies.length <= 20) {
+        if (movies.totalResults <= 20) {
             refs.pagination.classList.add('is-hidden');
         }
 
