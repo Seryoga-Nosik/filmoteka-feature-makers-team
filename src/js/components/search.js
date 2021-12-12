@@ -20,18 +20,20 @@ async function onSearch(event) {
         runSpinner();
         stopSpinner();
         refs.gallery.innerHTML = '';
-        renderTrandingFilms();
+        renderTrandingFilms(1);
+        refs.noResultsBlock.classList.add('is-hidden');
         return;
     } 
 
     try {
         const movies = await getMoviesSearchQuery(inputData, 1);
-        // console.log(movies);
+        refs.noResultsBlock.classList.add('is-hidden');
 
         if (movies.totalResults === 0) {
             stopSpinner();
             onFetchError();
             refs.gallery.innerHTML = '';
+            refs.noResultsBlock.classList.remove('is-hidden');
             refs.pagination.classList.add('is-hidden');
             return;
         }
