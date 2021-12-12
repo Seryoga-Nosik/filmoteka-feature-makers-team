@@ -3,6 +3,7 @@ import modalTpl from '../../template/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/src/styles/main.scss';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { getMovieInfo } from '../apiService';
 
 const refs = getRefs();
 
@@ -14,22 +15,29 @@ function onClickHandler(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+  const movieId = e.target.id;
+  getMovieInfo(movieId)
+    .then(movie => {
+      const markup = modalTpl(movie);
+      const lightbox = basicLightbox.create(markup);
+      lightbox.show();
 
-  const markup = modalTpl();
-  const openModal = basicLightbox.create(markup);
-  openModal.show();
+      window.addEventListener('keydown', closeModal);
 
-  refs.clsBtn.addEventListener('click', closeModalBtn);
-  function closeModalBtn() {
-    openModal.close();
-    window.removeEventListener('keydown', closeModalBtn);
-  }
+      function closeModal(e) {
+        if (e.code === 'Escape') {
+          lightbox.close();
+          window.removeEventListener('keydown', closeModal);
+        }
+      }
 
-  window.addEventListener('keydown', closeModal);
-  function closeModal(e) {
-    if (e.code === 'Escape') {
-      openModal.close();
-      window.removeEventListener('keydown', closeModal);
-    }
-  }
+      refs.clsBtn.addEventListener('click', closeModalByBtn);
+      function closeModalByBtn() {
+        lightbox.close();
+        window.removeEventListener('keydown', closeModalByBtn);
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }

@@ -8,7 +8,7 @@ export default function getRefs() {
     changeableBlock: document.querySelector('.changeable-block'),
     searchBox: document.querySelector('.form-search__input'),
     gallery: document.querySelector('.gallery'),
-    modal: document.querySelector('.modal-form'),
+    modal: document.querySelector('.modal'),
     modalСard: document.querySelector('.modal__card'),
     clsBtn: document.querySelector('.modal__close-btn'),
     pagination: document.querySelector('.pagination-container'),

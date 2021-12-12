@@ -20,6 +20,9 @@
   }
 
   &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
@@ -28,6 +31,12 @@
       transform: scale(1.035);
     }
   }
+
+  &__image {
+    height: 398px;
+    overflow: hidden;
+  }
+
 }
 
 .card__image {

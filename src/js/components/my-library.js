@@ -64,11 +64,6 @@ function checkCurrentPage() {
           autocomplete="off"
           placeholder="Поиск фильмов"
         />
-        <button class="form-search__button" type="submit">
-          <svg width="12" height="12">
-            <use href="./images/header/icons.svg#icon-search"></use>
-          </svg>
-        </button>
         </form>`
         refs.changeableBlock.insertAdjacentHTML("beforeend", searchMarkup);
     } else {

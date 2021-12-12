@@ -1,11 +1,14 @@
 {{#each this}}
   <li class='gallery__card' data-id='{{id}}'>
+    <div class="gallery__image">
     <img
       class='card__image'
       src='{{poster_path}}'
       alt='{{title}}'
+      id="{{id}}"
       data-source='https://image.tmdb.org/t/p/w500{{backdrop_path}}'
     />
+    </div>
     <div class='card__info info'>
       <h2 class='info__title'>{{original_title}}</h2>
       <div class='info__genres'>
