@@ -11,7 +11,8 @@
   @media screen and (min-width: 768px) {
     padding: 50px 0 60px 0;
   }
-  &is-hidden {
+
+  & .is-hidden {
     display: none;
   }
 }

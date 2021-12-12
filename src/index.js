@@ -5,5 +5,6 @@ import './js/components/arrowTop';
 import './js/components/modal';
 import './js/components/theme';
 import './js/components/my-library';
+import './js/components/search';
 import './js/components/gallery';
 import './js/components/firebase/firebaseAuth';
