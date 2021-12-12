@@ -8,3 +8,4 @@ import './js/components/my-library';
 import './js/components/search';
 import './js/components/gallery';
 import './js/components/firebase/firebaseAuth';
+import './js/components/firebase/fetchFromFirebase';

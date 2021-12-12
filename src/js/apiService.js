@@ -6,13 +6,13 @@ axios.defaults.baseURL = BASE_URL;
 
 export let totalPages = 1;
 
-export async function getTrendingMovies() {
+export async function getTrendingMovies(page) {
   try {
-    const response = await axios.get(`/trending/movie/week?api_key=${API_KEY}`);
+    const response = await axios.get(`/trending/movie/week?api_key=${API_KEY}&page=${page}`);
     const trendinMoviesData = await response.data;
     const trendinMovies = await trendinMoviesData.results;
     const normalizedMovies = await normalizer(trendinMovies);
-    return normalizedMovies;
+    return { normalizedMovies, trendinMoviesData };
   } catch (error) {
     console.error(error);
   }
@@ -43,23 +43,38 @@ export async function getMoviesSearchQuery(searchQuery, page) {
     const popularMovies = await popularMoviesData.results;
     totalPages = popularMoviesData.total_pages;
     const normalizedMovies = await normalizer(popularMovies);
+
     return { totalResults, normalizedMovies, popularMovies };
+
+
+
   } catch (error) {
     console.error(error);
   }
 }
 // getMoviesSearchQuery().then(data => console.log(data));
 
-export async function getMovieInfo(movie_id) {
+export async function getMovieInfo(movieId) {
   try {
-    const response = await axios.get(`/movie/${movie_id}?api_key=${API_KEY}&language=en-US`);
-    const movieInfo = await response.data;
-    return movieInfo;
+    const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+    const movieData = await response.data;
+    return movieData;
   } catch (error) {
     console.error(error);
   }
 }
 // getMovieInfo(512195).then(data => console.log(data));
+
+export async function getTraillerMovie(movieId) {
+  try {
+    const response = await axios.get(`movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
+    const modalMovie = await response.data;
+    return modalMovie;
+  } catch (error) {
+    console.log(error);
+  }
+}
+// getTraillerMovie().then(data => console.log(data));
 
 async function normalizer(data) {
   const moviesArr = await data;

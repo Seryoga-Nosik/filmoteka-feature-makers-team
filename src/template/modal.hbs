@@ -1,49 +1,52 @@
-<div class="modal">
+<div class="modal" id="{{id}}">
+    <button type="button" class="modal__close-btn" aria-label='close modal'>
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="close">
+                <path id="Vector 1" d="M8 8L22 22" stroke="black" stroke-width="2" />
+                <path id="Vector 2" d="M8 22L22 8" stroke="black" stroke-width="2" />
+            </g>
+        </svg>
+    </button>
     <div class="modal__card">
         <div class="modal__image-thumb">
-            <img srcset="./images/modal02.jpg 2x, ./images/modal.jpg" src="./images/modal.jpg" alt="Greyhound" />
+            
+            <img src='https://image.tmdb.org/t/p/w500/{{poster_path}}'
+             alt='{{title}}'
+      />
         </div>
 
 
         <div class="card__wrapper">
-            <h2 class="card__name">A FISTFUL OF LEAD</h2>
+            <h2 class="card__name">{{title}}</h2>
             <table class="card__list">
                 <tr>
                     <td class="item__label">Vote / Votes</td>
-                    <td class="item__value item__value--avg">7.3</td>
+                    <td class="item__value item__value--avg">{{vote_average}}</td>
 
-                    <td class="item__value item__value--cnt">/ 1260</td>
+                    <td class="item__value item__value--cnt">/ {{vote_count}}</td>
                 </tr>
                 <tr>
                     <td class="item__label">Popularity</td>
-                    <td class="item__value">100.2</td>
+                    <td class="item__value">{{popularity}}</td>
                 </tr>
                 <tr>
                     <td class="item__label">Original Title</td>
-                    <td class="item__value">A FISTFUL OF LEAD</td>
+                    <td class="item__value">{{original_title}}</td>
                 </tr>
                 <tr>
                     <td class="item__label">Genre</td>
-                    <td class="item__value">Western<span class="comma">,</span></td>
+                    {{#each genres}}
+                    <td class="item__value">{{this.name}}<span class="comma">,</span></td>
+                    {{/each}}
                 </tr>
             </table>
             <details class="mobile-about">
                 <summary class="mobile-about-caption">About</summary>
-                Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the
-                most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and
-                the other three escapes with bags of gold hide out in the abandoned gold mine where they
-                happen across another gang of three – who themselves were planning to hit the very same
-                bank! As tensions rise, things go from bad to worse as they realise the bags of gold are
-                filled with lead... they’ve been double crossed – but by who and how?
+            {{overview}}
             </details>
             <p class="card__about-caption">About</p>
             <p class="card__about">
-                Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the
-                most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and
-                the other three escapes with bags of gold hide out in the abandoned gold mine where they
-                happen across another gang of three – who themselves were planning to hit the very same
-                bank! As tensions rise, things go from bad to worse as they realise the bags of gold are
-                filled with lead... they’ve been double crossed – but by who and how?
+            {{overview}}
             </p>
             <button class='trailer__button' type="button" id="btn-trailer">
                 TRAILER
@@ -60,13 +63,5 @@
             </div>
         </div>
     </div>
-    <button type="button" class="modal__close-btn" data-modal-close>
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g id="close">
-                <path id="Vector 1" d="M8 8L22 22" stroke="black" stroke-width="2" />
-                <path id="Vector 2" d="M8 22L22 8" stroke="black" stroke-width="2" />
-            </g>
-        </svg>
-    </button>
-</div>
+    
 </div>

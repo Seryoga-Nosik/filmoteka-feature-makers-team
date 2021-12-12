@@ -35,7 +35,7 @@ loginGoogleBtn.addEventListener('click', e => {
       loginGoogleBtn.style.display = 'none';
       logoutGoogleBtn.style.display = 'block';
       showUserName(user.displayName);
-      console.log(`${user.displayName} - login with Google.`);
+      // console.log(`${user.displayName} - login with Google.`);//Test
     })
     .catch(error => {
       // Handle Errors here.
@@ -61,7 +61,7 @@ logoutGoogleBtn.addEventListener('click', e => {
       removeUserName();
       loginGoogleBtn.style.display = 'block';
       logoutGoogleBtn.style.display = 'none';
-      console.log(`Logout.`);
+      // console.log(`Logout.`);//Test
     })
     .catch(error => {
       // Handle Errors here.

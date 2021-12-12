@@ -5,26 +5,27 @@ import { runSpinner, stopSpinner } from './spinner';
 import getRefs from '../refs';
 const refs = getRefs();
 
-runSpinner();
-stopSpinner();
+// runSpinner();
+// stopSpinner();
 
-renderTrandingFilms();
+renderTrandingFilms(1);
 
 function resetMarkup() {
   refs.gallery.innerHTML = '';
 }
 
-export function renderTrandingFilms() {
+export function renderTrandingFilms(page) {
   resetMarkup();
-  getTrendingMovies().then(data => {
-    if (data.length === 0) {
+  getTrendingMovies(page).then(data => {
+    console.log('data', data);
+    if (data.normalizedMovies.length === 0) {
       Notify.failure('Sorry, no movies found. Please reload page.');
       refs.pagination.classList.add('is-hidden');
       resetMarkup();
       return;
     }
 
-    const markup = cardTemplate(data);
+    const markup = cardTemplate(data.normalizedMovies);
     refs.gallery.insertAdjacentHTML('beforeend', markup);
   });
 }
