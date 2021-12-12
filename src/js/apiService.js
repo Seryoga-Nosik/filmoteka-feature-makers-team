@@ -49,11 +49,12 @@ export async function getMoviesSearchQuery(searchQuery, page) {
 }
 // getMoviesSearchQuery().then(data => console.log(data));
 
-export async function getMovieInfo(movie_id) {
+export async function getMovieInfo(movieId) {
   try {
-    const response = await axios.get(`/movie/${movie_id}?api_key=${API_KEY}&language=en-US`);
-    const movieInfo = await response.data;
-    return movieInfo;
+    const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+    const movieData = await response.data;
+
+    return movieData;
   } catch (error) {
     console.error(error);
   }
