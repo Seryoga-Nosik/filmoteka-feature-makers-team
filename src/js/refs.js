@@ -6,6 +6,7 @@ export default function getRefs() {
     homeLink: document.querySelector('.home-link'),
     myLibraryLink: document.querySelector('.my-library-link'),
     changeableBlock: document.querySelector('.changeable-block'),
+    searchBox: document.querySelector('.form-search__input'),
     gallery: document.querySelector('.gallery'),
     modal: document.querySelector('.modal-form'),
     modalСard: document.querySelector('.modal__card'),

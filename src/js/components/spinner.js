@@ -11,5 +11,5 @@ export function runSpinner() {
 
 export function stopSpinner() {
   // Loading.remove();
-  Loading.remove(3000);
+  Loading.remove(1000);
 }

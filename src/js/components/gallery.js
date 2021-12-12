@@ -14,7 +14,7 @@ function resetMarkup() {
   refs.gallery.innerHTML = '';
 }
 
-function renderTrandingFilms() {
+export function renderTrandingFilms() {
   resetMarkup();
   getTrendingMovies().then(data => {
     if (data.length === 0) {
