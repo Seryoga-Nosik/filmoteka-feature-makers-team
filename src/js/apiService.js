@@ -43,11 +43,7 @@ export async function getMoviesSearchQuery(searchQuery, page) {
     const popularMovies = await popularMoviesData.results;
     totalPages = popularMoviesData.total_pages;
     const normalizedMovies = await normalizer(popularMovies);
-<<<<<<< Updated upstream
-    return normalizedMovies;
-=======
     return { totalResults, normalizedMovies, popularMovies };
->>>>>>> Stashed changes
   } catch (error) {
     console.error(error);
   }
