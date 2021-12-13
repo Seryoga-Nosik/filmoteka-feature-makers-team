@@ -3,7 +3,7 @@ import modalTpl from '../../template/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/src/styles/main.scss';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import { getMovieInfo, getTraillerMovie } from '../apiService';
+import { getMovieInfo, getTrailerMovie } from '../apiService';
 
 const refs = getRefs();
 
@@ -26,49 +26,25 @@ function onClickHandler(e) {
       const lightbox = basicLightbox.create(markup);
       lightbox.show();
 
-      getRefs().trailerBtn.addEventListener('click', getTrailer);
+      const getTrailer = async function (e) {
+        const key = await getTrailerMovie(movieId);
+        const trailer = basicLightbox.create(`
+           <iframe width="70%" height="70%" src='https://www.youtube.com/embed/${key}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>
+          `);
+        console.log(trailer);
+        trailer.show();
 
-      function getTrailer(e) {
-        e.preventDefault();
-        if (e.target.nodeName !== 'IMG') {
-          return;
-        }
-
-        getTraillerMovie(movieId)
-          .then(renderTrailer)
-          .catch(error => {
-            console.log(error);
-          });
-
-        function renderTrailer(data) {
-          let key = '';
-          data.forEach(obj => {
-            if (obj.name.includes('Official')) {
-              key = obj.key;
-            }
-          });
-
-          const trailer = basicLightbox.create(`
-    <iframe width="320" height="240" src='https://www.youtube.com/embed/${key}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>
-  `);
-
-          trailer.show();
-
-          window.addEventListener('keydown', closeTrailerByEsc);
-          function closeTrailerByEsc(e) {
-            if (e.code === 'Escape') {
-              trailer.close();
-              window.removeEventListener('keydown', closeTrailerByEsc);
-              document.body.classList.remove('body-overflow--hidden');
-            }
+        window.addEventListener('keydown', closeTrailerByEsc);
+        function closeTrailerByEsc(e) {
+          if (e.code === 'Escape') {
+            trailer.close();
+            window.removeEventListener('keydown', closeTrailerByEsc);
+            document.body.classList.remove('body-overflow--hidden');
           }
         }
-      }
+      };
 
-      //   document
-      //     .querySelector('.basicLightbox--iframe')
-      //     .addEventListener('click', () => document.body.classList.remove('body-overflow--hidden'));
-      // }
+      getRefs().trailerBtn.addEventListener('click', getTrailer);
 
       window.addEventListener('keydown', onEscClick);
 
