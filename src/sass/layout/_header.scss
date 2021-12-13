@@ -233,6 +233,7 @@
       color: $white-text-color;
       font-size: 14px;
       line-height: 1.48;
+      text-shadow: 4px 1px 6px $header-bg-color;
 
       @media screen and (min-width: 768px) {
         font-size: 16px;
