@@ -93,13 +93,21 @@ function onMyLibraryLinkClick(e) {
 
 function onWatchedBtnClick(e) {
     if (e.target == getRefs().btnWatched) {
-         refs.gallery.innerHTML = '';
+        getRefs().btnWatched.style.backgroundColor = '#ff6b01';
+        getRefs().btnWatched.style.border = 'none';
+        getRefs().btnQueue.style.backgroundColor = 'rgba(145, 145, 145, 0.25)';
+        getRefs().btnQueue.style.border = '1px solid #fff'
+        refs.gallery.innerHTML = '';
         fetchWatchedFilms()
     }
 };
 
 function onQueueBtnClick(e) {
     if (e.target == getRefs().btnQueue) {
+        getRefs().btnQueue.style.backgroundColor = '#ff6b01';
+        getRefs().btnQueue.style.border = 'none';
+        getRefs().btnWatched.style.backgroundColor = 'rgba(145, 145, 145, 0.25)';
+        getRefs().btnWatched.style.border = '1px solid #fff'
          refs.gallery.innerHTML = '';
         fetchQueueFilms()
     }
