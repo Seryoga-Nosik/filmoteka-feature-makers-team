@@ -15,7 +15,7 @@ const dbRef = ref(db);
 export function fetchWatchedFilms() {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log(user.displayName); //Test
+      // console.log(user.displayName); //Test
       const path = 'watched';
       getData(user.uid, path);
     }
@@ -25,7 +25,7 @@ export function fetchWatchedFilms() {
 export function fetchQueueFilms() {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log(user.displayName); //Test
+      // console.log(user.displayName); //Test
       const path = 'queue';
       getData(user.uid, path);
     }
@@ -33,20 +33,17 @@ export function fetchQueueFilms() {
 }
 
 function getData(uid, path) {
-    get(child(dbRef, `users/${uid}/${path}/id`))
-        .then(snapshot => {
-          if (snapshot.exists()) {
-            const films = snapshot.val();
-            console.log(`${path} films - `, films); //Test
-            // Вставить код запуска функции для рендера карточек с аргументом films
-          } else {
-            console.log(`${path} films - No data available`);
-          }
-        })
-        .catch(error => {
-          console.error(error);
-        });
+  get(child(dbRef, `users/${uid}/${path}/id`))
+    .then(snapshot => {
+      if (snapshot.exists()) {
+        const films = snapshot.val();
+        // console.log(`${path} films - `, films); //Test
+        // Вставить код запуска функции для рендера карточек с аргументом films
+      } else {
+        console.log(`${path} films - No data available`);
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
 }
-
-// fetchWatchedFilms();
-// fetchQueueFilms();
