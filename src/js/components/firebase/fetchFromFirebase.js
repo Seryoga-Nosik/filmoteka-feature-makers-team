@@ -39,7 +39,7 @@ function getData(uid, path) {
         .then(snapshot => {
           if (snapshot.exists()) {
             const films = snapshot.val();
-            console.log(`${path} films - `, films); //Test
+            // console.log(`${path} films - `, films); //Test
             // Вставить код запуска функции для рендера карточек с аргументом films
             render(films,path)
           } else {
