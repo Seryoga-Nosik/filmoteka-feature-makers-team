@@ -62,7 +62,7 @@ function checkCurrentPage() {
           type="text"
           name="searchQuery"
           autocomplete="off"
-          placeholder="Поиск фильмов"
+          placeholder="Find movies..."
         />
         </form>`
         refs.changeableBlock.insertAdjacentHTML("beforeend", searchMarkup);
