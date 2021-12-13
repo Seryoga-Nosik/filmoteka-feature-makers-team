@@ -1,5 +1,6 @@
 .basicLightbox--visible {
-  overflow-y: scroll;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
 }
 
 .modal {
@@ -76,12 +77,14 @@
   border-radius: 50%;
   cursor: pointer;
   outline: none;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: transparent;
+  transition: border $transition-function ease-out;
 
   &:hover,
   &:focus {
     opacity: 0.5;
+    border: 2px solid $orange-btn-color;
+    transition: border $transition-function ease-out;
   }
 }
 

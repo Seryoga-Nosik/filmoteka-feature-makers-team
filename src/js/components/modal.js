@@ -15,6 +15,9 @@ function onClickHandler(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+
+  document.body.classList.add('body-overflow--hidden');
+
   const movieId = e.target.id;
   getMovieInfo(movieId)
     .then(movie => {
@@ -22,12 +25,13 @@ function onClickHandler(e) {
       const lightbox = basicLightbox.create(markup);
       lightbox.show();
 
-      window.addEventListener('keydown', closeModal);
+      window.addEventListener('keydown', onEscClick);
 
-      function closeModal(e) {
+      function onEscClick(e) {
         if (e.code === 'Escape') {
           lightbox.close();
           window.removeEventListener('keydown', closeModal);
+          document.body.classList.remove('body-overflow--hidden');
         }
       }
 
@@ -35,7 +39,12 @@ function onClickHandler(e) {
       function closeModalByBtn() {
         lightbox.close();
         window.removeEventListener('keydown', closeModalByBtn);
+        document.body.classList.remove('body-overflow--hidden');
       }
+
+      document
+        .querySelector('.basicLightbox')
+        .addEventListener('click', () => document.body.classList.remove('body-overflow--hidden'));
     })
 
     .catch(error => {
