@@ -3,12 +3,12 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getTrendingMovies } from '../apiService';
 import { runSpinner, stopSpinner } from './spinner';
 import getRefs from '../refs';
+import { pagination } from './pagination.js';
 const refs = getRefs();
 
 // runSpinner();
 // stopSpinner();
-
-renderTrandingFilms(1);
+const page = pagination.getCurrentPage();
 
 function resetMarkup() {
   refs.gallery.innerHTML = '';
@@ -28,3 +28,10 @@ export function renderTrandingFilms(page) {
     refs.gallery.insertAdjacentHTML('beforeend', markup);
   });
 }
+
+renderTrandingFilms(page);
+
+pagination.on('afterMove', (event) => {
+  const page = event.page;
+  renderTrandingFilms(page); 
+});
