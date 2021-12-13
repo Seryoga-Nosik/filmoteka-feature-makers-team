@@ -14,6 +14,14 @@ const DEBOUNCE_DELAY = 500;
 refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
 async function onSearch(event) { 
+    
+    window.addEventListener('keydown', (e) => {
+        if(e.code === 'Enter') {
+            e.preventDefault();
+        }
+    });
+
+
     const inputData = refs.searchBox.value.trim();
 
     if (!inputData) {
