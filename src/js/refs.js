@@ -11,9 +11,12 @@ export default function getRefs() {
     modal: document.querySelector('.modal'),
     modalСard: document.querySelector('.modal__card'),
     clsBtn: document.querySelector('.modal__close-btn'),
+    trailerBtn: document.querySelector('.trailer__button'),
     pagination: document.querySelector('.pagination-container'),
     toTopBtn: document.querySelector('.uptop'),
     noResultsBlock: document.querySelector('.no-results'),
     noResultsImg: document.querySelector('.no-results__image'),
+    btnWatched: document.querySelector('.primary-button'),
+    btnQueue: document.querySelector('.secondary-button'),
   };
 }

@@ -64,7 +64,7 @@ export async function getMovieInfo(movieId) {
 export async function getTraillerMovie(movieId) {
   try {
     const response = await axios.get(`movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
-    const modalMovie = await response.data;
+    const modalMovie = await response.data.results;
     return modalMovie;
   } catch (error) {
     console.log(error);

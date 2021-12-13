@@ -1,6 +1,11 @@
 import getRefs from '../refs';
 
 const refs = getRefs();
+//import frow watched and queue
+import { fetchQueueFilms } from '../components/firebase/fetchFromFirebase';
+import { fetchWatchedFilms } from '../components/firebase/fetchFromFirebase';
+import { getMovieInfo } from '../apiService';
+import watched from '../../template/listFilms.hbs';
 
 refs.navList.addEventListener('click', onNavItemClick);
 refs.myLibraryLink.addEventListener('click', onMyLibLinkClick);
@@ -74,3 +79,54 @@ function checkCurrentPage() {
         refs.changeableBlock.insertAdjacentHTML("beforeend", buttonsMarkup);
     }
 }
+
+document.addEventListener('click', onMyLibraryLinkClick); 
+document.addEventListener('click', onWatchedBtnClick);
+document.addEventListener('click', onQueueBtnClick);
+
+function onMyLibraryLinkClick(e) {
+    if (e.target == getRefs().myLibraryLink) {
+        refs.gallery.innerHTML = '';           
+        fetchWatchedFilms();
+    }
+};
+
+function onWatchedBtnClick(e) {
+    if (e.target == getRefs().btnWatched) {
+        getRefs().btnWatched.style.backgroundColor = '#ff6b01';
+        getRefs().btnWatched.style.border = 'none';
+        getRefs().btnQueue.style.backgroundColor = 'rgba(145, 145, 145, 0.25)';
+        getRefs().btnQueue.style.border = '1px solid #fff'
+        refs.gallery.innerHTML = '';
+        fetchWatchedFilms()
+    }
+};
+
+function onQueueBtnClick(e) {
+    if (e.target == getRefs().btnQueue) {
+        getRefs().btnQueue.style.backgroundColor = '#ff6b01';
+        getRefs().btnQueue.style.border = 'none';
+        getRefs().btnWatched.style.backgroundColor = 'rgba(145, 145, 145, 0.25)';
+        getRefs().btnWatched.style.border = '1px solid #fff'
+         refs.gallery.innerHTML = '';
+        fetchQueueFilms()
+    }
+};
+
+export function render(films, path) {
+    if (path === 'watched') {
+    for (const film of films) {
+        getMovieInfo(film).then(data => {
+            const markup = watched(data);
+            refs.gallery.insertAdjacentHTML('beforeend', markup);
+        });
+    }
+    }else  {
+    for (const film of films) {
+        getMovieInfo(film).then(data => {
+        const markup = watched(data);
+        refs.gallery.insertAdjacentHTML('beforeend', markup);
+        })
+    }
+    }
+};
