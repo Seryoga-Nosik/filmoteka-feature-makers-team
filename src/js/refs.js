@@ -18,6 +18,5 @@ export default function getRefs() {
     noResultsImg: document.querySelector('.no-results__image'),
     addToWatchedBtn: document.getElementById('btn-add-watched'),
     addToQueueBtn: document.getElementById('btn-add-to-queue'),
-
   };
 }
