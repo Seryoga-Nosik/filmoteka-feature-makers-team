@@ -2,6 +2,8 @@ import { firebaseConfig } from './firebaseConfig';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, ref, child, get } from 'firebase/database';
+//import frow watched and queue
+import { render } from '../my-library';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -39,6 +41,7 @@ function getData(uid, path) {
         const films = snapshot.val();
         // console.log(`${path} films - `, films); //Test
         // Вставить код запуска функции для рендера карточек с аргументом films
+        render(films,path)
       } else {
         console.log(`${path} films - No data available`);
       }
