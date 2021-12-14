@@ -10,3 +10,4 @@ import './js/components/gallery';
 import './js/components/firebase/firebaseAuth';
 import './js/components/firebase/fetchFromFirebase';
 import './js/components/listFilms';
+import  './js/components/theme-change';
