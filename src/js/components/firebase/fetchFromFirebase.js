@@ -2,8 +2,6 @@ import { firebaseConfig } from './firebaseConfig';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, ref, child, get } from 'firebase/database';
-//import frow watched and queue
-import { render } from '../my-library';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -35,7 +33,6 @@ export function fetchQueueFilms() {
 }
 
 function getData(uid, path) {
-
   get(child(dbRef, `users/${uid}/${path}/id`))
     .then(snapshot => {
       if (snapshot.exists()) {
@@ -49,5 +46,4 @@ function getData(uid, path) {
     .catch(error => {
       console.error(error);
     });
-
 }
