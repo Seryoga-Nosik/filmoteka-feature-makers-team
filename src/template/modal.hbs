@@ -35,9 +35,9 @@
                 </tr>
                 <tr>
                     <td class="item__label">Genre</td>
-                    {{#each genres}}
-                    <td class="item__value">{{this.name}}<span class="comma">,</span></td>
-                    {{/each}}
+                    
+                    <td class="item__value">{{#each genres}}<span>{{this.name}}</span><span class="comma">,</span>{{/each}}</td>
+                    
                 </tr>
             </table>
             <details class="mobile-about">

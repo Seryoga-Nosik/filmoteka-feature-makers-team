@@ -20,11 +20,13 @@ function onClickHandler(e) {
   document.body.classList.add('body-overflow--hidden');
 
   const movieId = e.target.id;
+
   getMovieInfo(movieId)
     .then(movie => {
       const markup = modalTpl(movie);
       const lightbox = basicLightbox.create(markup);
       lightbox.show();
+
 
       //Add to watched
       getRefs().addToWatchedBtn.addEventListener('click', addToWatched);
@@ -32,12 +34,34 @@ function onClickHandler(e) {
       getRefs().addToQueueBtn.addEventListener('click', addToQueue);
 
 
+      const getTrailer = async function (e) {
+        const key = await getTrailerMovie(movieId);
+        const trailer = basicLightbox.create(`
+           <iframe width="70%" height="70%" src='https://www.youtube.com/embed/${key}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>
+          `);
+        console.log(trailer);
+        trailer.show();
+
+        window.addEventListener('keydown', closeTrailerByEsc);
+        function closeTrailerByEsc(e) {
+          if (e.code === 'Escape') {
+            trailer.close();
+            window.removeEventListener('keydown', closeTrailerByEsc);
+            document.body.classList.remove('body-overflow--hidden');
+          }
+        }
+      };
+
+      getRefs().trailerBtn.addEventListener('click', getTrailer);
+
+
       window.addEventListener('keydown', onEscClick);
 
       function onEscClick(e) {
         if (e.code === 'Escape') {
           lightbox.close();
-          window.removeEventListener('keydown', closeModal);
+
+          window.removeEventListener('keydown', onEscClick);
           document.body.classList.remove('body-overflow--hidden');
         }
       }

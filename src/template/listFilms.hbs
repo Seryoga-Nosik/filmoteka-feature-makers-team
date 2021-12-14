@@ -1,0 +1,18 @@
+<li class='gallery__card' data-id='{{id}}'>
+    <div class="gallery__image">
+        <img class='card__image' src='https://image.tmdb.org/t/p/w500/{{poster_path}}' alt='{{title}}' id="{{id}}"
+            data-source='https://image.tmdb.org/t/p/w500{{poster_path}}' />
+    </div>
+    <div class='card__info info'>
+        <h2 class='info__title'>{{title}}</h2>
+        <div class='info__genres'>
+            <ul class='genres'>
+                {{#each genres}}
+                <li class='genres__item'>{{this.genres}}</li>
+                {{/each}}
+            </ul>
+            <p class='card__date'>{{release_date}}</p>
+            <span class='film__vote_average'>{{vote_average}}</span>
+        </div>
+    </div>
+</li>
