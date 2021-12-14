@@ -1,0 +1,76 @@
+
+body.dark {
+    background-color: $dark-theme-color;
+    color: $white-text-color;
+}
+
+.trailer__button {
+   
+    background-color:  $black-text-color ;
+   
+    border: 1px solid $white-text-color;
+    color: $white-text-color;
+  
+    
+  }
+
+  .modal {
+    background-color: #19181d;
+    color: $white-text-color;
+  }
+
+  .card__name {
+    
+    color:$white-text-color ;
+   }
+
+   .item__value,
+.card__about-caption,
+.card__about,
+.mobile-about-caption,
+.mobile-about {
+  color:$white-text-color;
+  
+}
+
+.modal__close-btn{
+
+fill: $main-bg-color;
+}
+
+  .icon[data-theme="dark"] {
+
+    display: none;
+   
+    
+   
+}
+
+.icon[data-theme="light"] {
+
+    display: block;
+  
+    
+   
+}
+
+.icon {
+  position: relative;
+  bottom:2px;
+  right: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+
+.footer-text{
+  
+  color: $black-text-color ;
+  
+}
+
+.footer{
+ 
+    background-color: $dark-theme-color;
+    
+}
