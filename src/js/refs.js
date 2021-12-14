@@ -16,7 +16,8 @@ export default function getRefs() {
     toTopBtn: document.querySelector('.uptop'),
     noResultsBlock: document.querySelector('.no-results'),
     noResultsImg: document.querySelector('.no-results__image'),
-    btnWatched: document.querySelector('.primary-button'),
-    btnQueue: document.querySelector('.secondary-button'),
+    addToWatchedBtn: document.getElementById('btn-add-watched'),
+    addToQueueBtn: document.getElementById('btn-add-to-queue'),
+
   };
 }

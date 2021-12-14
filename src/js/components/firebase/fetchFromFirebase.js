@@ -35,21 +35,19 @@ export function fetchQueueFilms() {
 }
 
 function getData(uid, path) {
-    get(child(dbRef, `users/${uid}/${path}/id`))
-        .then(snapshot => {
-          if (snapshot.exists()) {
-            const films = snapshot.val();
-            // console.log(`${path} films - `, films); //Test
-            // Вставить код запуска функции для рендера карточек с аргументом films
-            render(films,path)
-          } else {
-            console.log(`${path} films - No data available`);
-          }
-        })
-        .catch(error => {
-          console.error(error);
-        });
-}
 
-// fetchWatchedFilms();
-// fetchQueueFilms();
+  get(child(dbRef, `users/${uid}/${path}/id`))
+    .then(snapshot => {
+      if (snapshot.exists()) {
+        const films = snapshot.val();
+        // console.log(`${path} films - `, films); //Test
+        // Вставить код запуска функции для рендера карточек с аргументом films
+      } else {
+        console.log(`${path} films - No data available`);
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
+}
