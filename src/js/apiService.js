@@ -8,7 +8,8 @@ export let totalPages = 1;
 
 export async function getTrendingMovies(page) {
   try {
-    const response = await axios.get(`/trending/movie/week?api_key=${API_KEY}&page=${page}`);
+    // const response = await axios.get(`/trending/movie/week?api_key=${API_KEY}&page=${page}`);
+    const response = await axios.get(`/movie/popular?api_key=${API_KEY}&page=${page}`);
     const trendinMoviesData = await response.data;
     const trendinMovies = await trendinMoviesData.results;
     const normalizedMovies = await normalizer(trendinMovies);
