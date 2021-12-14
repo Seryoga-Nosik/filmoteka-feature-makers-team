@@ -20,5 +20,7 @@ export default function getRefs() {
     addToQueueBtn: document.getElementById('btn-add-to-queue'),
     btnWatched: document.querySelector('.primary-button'),
     btnQueue: document.querySelector('.secondary-button'),
+    loginGoogleBtn: document.getElementById('login-google'),
+    logoutGoogleBtn: document.getElementById('logout-google'),
   };
 }
