@@ -8,9 +8,6 @@
 
   width: 100%;
   height: 100%;
-  max-width: 280px;
-
-  padding: 48px 20px 41px;
 
   background-color: $main-bg-color;
   box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 1px rgb(0 0 0 / 14%), 0 2px 1px rgb(0 0 0 / 20%);
@@ -20,7 +17,18 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.25s;
 
+  &__btn {
+    color: $black-text-color;
+    border: 1px solid $black-text-color;
+  }
+}
+.modal__card {
+  max-width: 280px;
+
+  padding: 48px 20px 41px;
+
   @media screen and (min-width: 768px) {
+    display: flex;
     padding: 42px 28px 40px 30px;
     max-width: 618px;
   }
@@ -28,15 +36,6 @@
     padding: 50px 30px 40px;
 
     max-width: 882px;
-  }
-  &__btn {
-    color: $black-text-color;
-    border: 1px solid $black-text-color;
-  }
-}
-.modal__card {
-  @media screen and (min-width: 768px) {
-    display: flex;
   }
 }
 .card__name {
@@ -180,6 +179,10 @@
     color: $white-text-color;
     background-color: $orange-btn-color;
     border-radius: 5px;
+  }
+  &--gnr {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 .comma {

@@ -5,7 +5,7 @@ import 'basiclightbox/src/styles/main.scss';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { getMovieInfo, getTrailerMovie } from '../apiService';
 import { addToWatched, addToQueue } from './firebase/writeToFirebase';
-import {comparisonWithFirebase} from './firebase/comparisonWithFirebase';
+import { comparisonWithFirebase } from './firebase/comparisonWithFirebase';
 
 const refs = getRefs();
 
@@ -33,7 +33,7 @@ function onClickHandler(e) {
       async function getTrailer(e) {
         const key = await getTrailerMovie(movieId);
         const trailer = basicLightbox.create(`
-           <iframe width="70%" height="70%" src='https://www.youtube.com/embed/${key}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>
+           <iframe width="70%" height="70%" src='https://www.youtube.com/embed/${key}?autoplay=1'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>
           `);
         trailer.show();
 
