@@ -3,7 +3,8 @@ import modalTpl from '../../template/modal.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/src/styles/main.scss';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import { getMovieInfo, getTrailerMovie } from '../apiService';
+import { getMovieInfo } from '../apiService';
+import {addToWatched, addToQueue} from './firebase/writeToFirebase';
 
 const refs = getRefs();
 
@@ -26,6 +27,13 @@ function onClickHandler(e) {
       const lightbox = basicLightbox.create(markup);
       lightbox.show();
 
+
+      //Add to watched
+      getRefs().addToWatchedBtn.addEventListener('click', addToWatched);
+      //Add to queue
+      getRefs().addToQueueBtn.addEventListener('click', addToQueue);
+
+
       const getTrailer = async function (e) {
         const key = await getTrailerMovie(movieId);
         const trailer = basicLightbox.create(`
@@ -45,6 +53,7 @@ function onClickHandler(e) {
       };
 
       getRefs().trailerBtn.addEventListener('click', getTrailer);
+
 
       window.addEventListener('keydown', onEscClick);
 
