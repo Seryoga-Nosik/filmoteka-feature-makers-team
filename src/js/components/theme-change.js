@@ -5,19 +5,22 @@ if(!window.localStorage.getItem('Dark')){
     window.localStorage.setItem('Light','light');
     document.body.classList.toggle('light');
     } else{
-        onThemeBtn()
+        window.localStorage.setItem('Dark', 'dark');
+        document.body.classList.toggle('dark');
      }
+
  
- if(!document.body.classList.contains('dark')) {
-    window.localStorage.setItem('Light','light');
-    document.body.classList.toggle('light');
- }else {
-    onThemeBtn()
- }
+//  if(!document.body.classList.contains('dark')) {
+//     window.localStorage.setItem('Light','light');
+//     document.body.classList.toggle('light');
+//  }else {
+//     onThemeBtn()
+//  }
  if(window.localStorage.getItem('')){
     window.localStorage.setItem('Light', 'light');
     document.body.classList.toggle('light')
 }
+
 
 
  
