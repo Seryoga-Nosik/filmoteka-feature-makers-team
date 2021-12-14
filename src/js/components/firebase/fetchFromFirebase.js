@@ -11,9 +11,6 @@ const auth = getAuth(app);
 const db = getDatabase(app);
 const dbRef = ref(db);
 
-// watcehd [425909, 522402, 664574]
-// queue [774741, 585245, 802217]
-
 export function fetchWatchedFilms() {
   onAuthStateChanged(auth, user => {
     if (user) {
@@ -43,7 +40,7 @@ function getData(uid, path) {
         // Вставить код запуска функции для рендера карточек с аргументом films
         render(films,path)
       } else {
-        console.log(`${path} films - No data available`);
+        // console.log(`${path} films - No data available`);//Test
       }
     })
     .catch(error => {
