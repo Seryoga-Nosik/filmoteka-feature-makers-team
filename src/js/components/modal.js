@@ -27,12 +27,11 @@ function onClickHandler(e) {
       //Add to queue
       getRefs().addToQueueBtn.addEventListener('click', addToQueue);
 
-      const getTrailer = async function (e) {
+      async function getTrailer(e) {
         const key = await getTrailerMovie(movieId);
         const trailer = basicLightbox.create(`
            <iframe width="70%" height="70%" src='https://www.youtube.com/embed/${key}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>
           `);
-        console.log(trailer);
         trailer.show();
 
         window.addEventListener('keydown', closeTrailerByEsc);
@@ -43,7 +42,7 @@ function onClickHandler(e) {
             document.body.classList.remove('body-overflow--hidden');
           }
         }
-      };
+      }
 
       getRefs().trailerBtn.addEventListener('click', getTrailer);
 
