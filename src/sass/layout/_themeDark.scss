@@ -1,0 +1,62 @@
+
+body.dark {
+    background-color: rgb(42, 39, 48);
+    color: #fff;
+}
+
+.trailer__button {
+   
+    background-color:  $black-text-color ;
+   
+    border: 1px solid $white-text-color;
+    color: $white-text-color;
+  
+    
+  }
+
+  .modal {
+    background-color: #19181d;
+    color: #fff;
+  }
+
+  .card__name {
+    
+    color: #fff;
+   }
+
+   .item__value,
+.card__about-caption,
+.card__about,
+.mobile-about-caption,
+.mobile-about {
+  color:#fff;
+  
+}
+
+.modal__close-btn{
+  fill: #fff;
+}
+
+  .icon[data-theme="dark"] {
+
+    display: block;
+   
+    
+   
+}
+
+.icon[data-theme="light"] {
+
+    display: none;
+  
+    
+   
+}
+
+.icon {
+  position: relative;
+  bottom:2px;
+  right: 50%;
+  width: 20px;
+  height: 20px;
+}

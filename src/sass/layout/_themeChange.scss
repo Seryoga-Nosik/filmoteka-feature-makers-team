@@ -1,34 +1,29 @@
-
 .change {
-    position: relative;
-background-color: transparent;
-box-shadow: white;
-border-radius: 5px;
-}
-.icon-light {
-    // display: none;
-    display: block;
-    width: 25px;
-    height: 25px;
-
-}
-
-.icon-dark {
-
-    display: block;
-    width: 25px;
-    height: 25px;
     
-   
+    top: 35px;
+    right:35px;
+    position: relative;
+    background-color: transparent;
+    box-shadow: white;
+    border-radius: 5px;
+    width: 24px;
+height: 24px;
 }
 
-body.dark {
-    background-color: rgb(42, 39, 48);
-    color: #fff;
+.icon{
+    position: relative;
+    bottom:2px;
+    right: 50%;
+    width: 20px;
+    height: 20px;
 }
 
-body.light {
-    background-color:$main-bg-color ;
-    color: $black-text-color;
-}
+
+
+
+
+
+
+
+
 
