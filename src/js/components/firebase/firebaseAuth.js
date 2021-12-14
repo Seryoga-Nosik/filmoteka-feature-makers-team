@@ -7,17 +7,18 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
-
+import getRefs from '../../refs';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-const loginGoogleBtn = document.getElementById('login-google');
-const logoutGoogleBtn = document.getElementById('logout-google');
+const loginGoogleBtn = getRefs().loginGoogleBtn;
+const logoutGoogleBtn = getRefs().logoutGoogleBtn;
 
 logoutGoogleBtn.style.display = 'none';
+
 checkAuthState();
 
 // Login
@@ -61,6 +62,10 @@ logoutGoogleBtn.addEventListener('click', e => {
       removeUserName();
       loginGoogleBtn.style.display = 'block';
       logoutGoogleBtn.style.display = 'none';
+
+      removeSingOut();
+      showSingIn();
+
       // console.log(`Logout.`);//Test
     })
     .catch(error => {
@@ -83,15 +88,45 @@ function showUserName(user) {
     const name = document.createElement('p');
     name.textContent = user;
     name.id = 'user-name';
+    name.style.fontSize = '14px';
     if (!document.getElementById('user-name')) {
       document.getElementById('login').prepend(name);
+      document.querySelector('.sing-in').remove();
+      // console.log('show User name'); //Test
     }
+  } else {
+    shoeSignOut();
   }
+}
+function shoeSignOut() {
+  const signOut = document.createElement('p');
+  signOut.textContent = 'Sign out';
+  signOut.id = 'sing-out';
+  signOut.style.fontSize = '14px';
+  if (!document.getElementById('sing-out')) {
+    document.getElementById('login').prepend(signOut);
+    document.querySelector('.sing-in').remove();
+    // console.log('show Sign out'); //Test
+  }
+}
+
+function showSingIn() {
+  const signIn = document.createElement('p');
+  signIn.textContent = 'Sign in';
+  signIn.id = 'sign-in';
+  signIn.style.fontSize = '14px';
+  signIn.classList.add('sing-in');
+  document.getElementById('login').before(signIn);
 }
 
 function removeUserName() {
   const userName = document.getElementById('user-name');
   if (userName) userName.remove();
+}
+
+function removeSingOut() {
+  const singOut = document.getElementById('sing-out');
+  if (singOut) singOut.remove();
 }
 
 function checkAuthState() {
@@ -103,4 +138,3 @@ function checkAuthState() {
     }
   });
 }
-
