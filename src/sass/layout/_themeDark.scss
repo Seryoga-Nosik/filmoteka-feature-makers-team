@@ -1,7 +1,7 @@
 
 body.dark {
-    background-color: rgb(42, 39, 48);
-    color: #fff;
+    background-color: $dark-theme-color;
+    color: $white-text-color;
 }
 
 .trailer__button {
@@ -16,12 +16,12 @@ body.dark {
 
   .modal {
     background-color: #19181d;
-    color: #fff;
+    color: $white-text-color;
   }
 
   .card__name {
     
-    color: #fff;
+    color:$white-text-color ;
    }
 
    .item__value,
@@ -29,17 +29,18 @@ body.dark {
 .card__about,
 .mobile-about-caption,
 .mobile-about {
-  color:#fff;
+  color:$white-text-color;
   
 }
 
 .modal__close-btn{
-  fill: #fff;
+
+fill: $main-bg-color;
 }
 
   .icon[data-theme="dark"] {
 
-    display: block;
+    display: none;
    
     
    
@@ -47,7 +48,7 @@ body.dark {
 
 .icon[data-theme="light"] {
 
-    display: none;
+    display: block;
   
     
    
@@ -70,6 +71,6 @@ body.dark {
 
 .footer{
  
-    background-color: #19181d;
+    background-color: $dark-theme-color;
     
 }
