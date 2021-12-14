@@ -17,7 +17,6 @@ function resetMarkup() {
 export function renderTrandingFilms(page) {
   resetMarkup();
   getTrendingMovies(page).then(data => {
-    console.log(refs.pagination);
     if (data.normalizedMovies.length === 0) {
       Notify.failure('Sorry, no movies found. Please reload page.');
       refs.pagination.classList.add('is-hidden');
