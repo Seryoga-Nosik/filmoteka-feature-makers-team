@@ -34,7 +34,7 @@ function getData(uid, path) {
 
         comparison(films, path);
       } else {
-        console.log(`${path} films - No data available`);
+        // console.log(`${path} films - No data available`); //Test
       }
     })
     .catch(error => {
@@ -57,6 +57,9 @@ function comparison(films, path) {
 function setColorAddToWatchedBtn() {
   getRefs().addToWatchedBtn.textContent = 'REMOVE FROM WATCHED';
   getRefs().addToQueueBtn.setAttribute('disabled', true);
+  getRefs().addToQueueBtn.style.background = '#fff';
+  getRefs().addToQueueBtn.style.color = '#8c8c8c';
+  getRefs().addToQueueBtn.style.borderColor = '#8c8c8c';
 
   getRefs().addToWatchedBtn.style.background = '#ff6b01';
   getRefs().addToWatchedBtn.style.color = '#fff';
@@ -66,6 +69,9 @@ function setColorAddToWatchedBtn() {
 function setColorAddToQueueBtn() {
   getRefs().addToQueueBtn.textContent = 'REMOVE FROM QUEUE';
   getRefs().addToWatchedBtn.setAttribute('disabled', true);
+  getRefs().addToWatchedBtn.style.background = '#fff';
+  getRefs().addToWatchedBtn.style.color = '#8c8c8c';
+  getRefs().addToWatchedBtn.style.borderColor = '#8c8c8c';
 
   getRefs().addToQueueBtn.style.background = '#ff6b01';
   getRefs().addToQueueBtn.style.color = '#fff';
