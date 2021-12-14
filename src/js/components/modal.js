@@ -5,6 +5,7 @@ import 'basiclightbox/src/styles/main.scss';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { getMovieInfo, getTrailerMovie } from '../apiService';
 import { addToWatched, addToQueue } from './firebase/writeToFirebase';
+import {comparisonWithFirebase} from './firebase/comparisonWithFirebase';
 
 const refs = getRefs();
 
@@ -22,6 +23,8 @@ function onClickHandler(e) {
       const lightbox = basicLightbox.create(markup);
       lightbox.show();
 
+      //Comparison with firebase
+      comparisonWithFirebase();
       //Add to watched
       getRefs().addToWatchedBtn.addEventListener('click', addToWatched);
       //Add to queue
