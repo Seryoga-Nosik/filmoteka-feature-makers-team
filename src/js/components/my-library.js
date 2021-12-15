@@ -135,3 +135,17 @@ export function render(films, path) {
     }
     }
 };
+
+export function renderInModaBtnClick(films, path) {
+    if (getRefs().homeLink.classList.contains('is-current')) {
+        return;
+    } else if (getRefs().myLibraryLink.classList.contains('is-current')) {
+        refs.gallery.innerHTML = '';
+        for (const film of films) {
+        getMovieId(film).then(data => {
+        const markup = watched(data);
+        refs.gallery.insertAdjacentHTML('beforeend', markup);
+        })
+    }
+    }
+};
