@@ -114,6 +114,7 @@ function onQueueBtnClick(e) {
 };
 
 export function render(films, path) {
+    refs.gallery.innerHTML = '';
     if (path === 'watched') {
     for (const film of films) {
         getMovieInfo(film).then(data => {
