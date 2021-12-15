@@ -6,6 +6,7 @@ import { fetchQueueFilms } from '../components/firebase/fetchFromFirebase';
 import { fetchWatchedFilms } from '../components/firebase/fetchFromFirebase';
 import { getMovieId } from '../apiService';
 import watched from '../../template/listFilms.hbs';
+import { renderTrandingFilms } from './gallery';
 
 refs.navList.addEventListener('click', onNavItemClick);
 refs.myLibraryLink.addEventListener('click', onMyLibLinkClick);
@@ -57,6 +58,7 @@ function onLogoClick(event) {
     refs.myLibraryLink.classList.remove('is-current');
 
     checkCurrentPage();
+    renderTrandingFilms();
 }
 
 function checkCurrentPage() {
