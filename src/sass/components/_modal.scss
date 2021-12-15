@@ -312,10 +312,21 @@
   &:not(:last-child) {
     margin-right: 15px;
   }
-  &:hover,
-  &:focus {
+  &:hover {
     color: $white-text-color;
     background-color: $orange-text-color;
     border-color: $white-text-color;
   }
+}
+
+.modal__btn__yellow__hot {
+  color: $white-text-color;
+  background-color: $orange-text-color;
+  border-color: $white-text-color;
+}
+
+.modal__btn_white {
+  color: $black-text-color;
+  background-color: $white-text-color;
+  border-color: $black-text-color;
 }
