@@ -4,7 +4,7 @@ const refs = getRefs();
 //import frow watched and queue
 import { fetchQueueFilms } from '../components/firebase/fetchFromFirebase';
 import { fetchWatchedFilms } from '../components/firebase/fetchFromFirebase';
-import { getMovieInfo } from '../apiService';
+import { getMovieId } from '../apiService';
 import watched from '../../template/listFilms.hbs';
 
 refs.navList.addEventListener('click', onNavItemClick);
@@ -119,14 +119,14 @@ export function render(films, path) {
     refs.gallery.innerHTML = '';
     if (path === 'watched') {
     for (const film of films) {
-        getMovieInfo(film).then(data => {
+        getMovieId(film).then(data => {
             const markup = watched(data);
             refs.gallery.insertAdjacentHTML('beforeend', markup);
         });
     }
     }else  {
     for (const film of films) {
-        getMovieInfo(film).then(data => {
+        getMovieId(film).then(data => {
         const markup = watched(data);
         refs.gallery.insertAdjacentHTML('beforeend', markup);
         })

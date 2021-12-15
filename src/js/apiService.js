@@ -63,6 +63,17 @@ export async function getMovieInfo(movieId) {
 }
 // getMovieInfo(512195).then(data => console.log(data));
 
+export async function getMovieId(movieId) {
+  try {
+    const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+    const movieData = await response.data;
+    const normalizedMovies = await normalizerMylib(movieData);
+    return normalizedMovies;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function getTrailerMovie(movieId) {
   try {
     const response = await axios.get(`movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
@@ -102,5 +113,29 @@ async function normalizer(data) {
   };
 
   const updatedMoviesarr = moviesArr.map(updateMovie);
+  return updatedMoviesarr;
+}
+
+async function normalizerMylib(data) {
+  const moviesArr = await data;
+  const updateMovie = movie => {
+    const MAX_GENRE_LENGTH = 20;
+    let genresLength = 0;
+
+    const genres = movie.genres.flatMap(gener => gener.name)
+      .filter(q => (genresLength += q.length) <= MAX_GENRE_LENGTH)
+    if (genresLength > MAX_GENRE_LENGTH) genres.push('others...');
+
+    let title = movie.title;
+    if (title.length > 40) {
+      title = movie.title.slice(0, 37) + '...';
+    }
+
+    const release_date = movie.release_date ? movie.release_date.split('-')[0] : 'NA';
+    
+    const movieUpdate = { ...movie, release_date, title, genres };
+    return movieUpdate;
+  };
+  const updatedMoviesarr = updateMovie(data);
   return updatedMoviesarr;
 }
