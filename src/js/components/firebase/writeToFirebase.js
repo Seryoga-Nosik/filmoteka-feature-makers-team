@@ -3,6 +3,8 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, ref, set, child, get } from 'firebase/database';
 import getRefs from '../../refs';
+//import frow watched and queue
+import { render } from '../my-library';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -52,6 +54,7 @@ function getData(uid, path, e, setData) {
           films.splice(indexFilm, 1);
           // console.log(films); //Test
           setData(uid, path, films, e);
+          render(films,path)
         } else {
           films.push(newId);
           // console.log(films); //Test
