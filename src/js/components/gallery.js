@@ -1,6 +1,6 @@
 import cardTemplate from '../../template/film-card.hbs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { getTrendingMovies } from '../apiService';
+import { getTrendingMovies, MAX_GENRE_LENGTH } from '../apiService';
 import { runSpinner, stopSpinner } from './spinner';
 import getRefs from '../refs';
 import { pagination } from './pagination.js';
@@ -12,6 +12,7 @@ const page = pagination.getCurrentPage();
 
 function resetMarkup() {
   refs.gallery.innerHTML = '';
+  refs.pagination.classList.remove('is-hidden');
 }
 
 export function renderTrandingFilms(page) {
@@ -24,8 +25,14 @@ export function renderTrandingFilms(page) {
       return;
     }
 
-    const markup = cardTemplate(data.normalizedMovies);
+    const { normalizedMovies = [] } = data;
+    const markup = cardTemplate(normalizedMovies);
     refs.gallery.insertAdjacentHTML('beforeend', markup);
+
+    // якщо перша сторінка і фільмів < 20
+    if(page === 1 && normalizedMovies.length < MAX_GENRE_LENGTH){
+      refs.pagination.classList.add('is-hidden');
+    }
   });
 }
 
