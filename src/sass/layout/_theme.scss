@@ -23,6 +23,14 @@
   }
 }
 
+#light-theme {
+    display: inline-block;
+}
+
+#dark-theme {
+    display: none;
+}
+
 // Light theme
 body.light-theme {
     background-color:$main-bg-color;
@@ -55,6 +63,31 @@ body.light-theme {
 
         .item__value--avg {
             color: $white-text-color;
+        }
+      }
+
+      .tui-pagination {
+        & .tui-first,
+        & .tui-last,
+        & .tui-prev,
+        & .tui-next,
+        & .tui-prev-is-ellip,
+        & .tui-next-is-ellip {
+            background-color: inherit;
+            color: $black-text-color;
+        }
+
+        .tui-page-btn {
+            &:hover {
+                color: $black-text-color;
+                background-color: $orange-btn-color;
+            }
+    
+            &.tui-is-disabled {
+                &:hover {
+                    background-color: inherit;
+                }
+            }
         }
       }
 
@@ -116,16 +149,35 @@ body.dark-theme {
         color: $black-text-color ;
     }
 
-    .tui-page-btn {
-        color: #fff;
+    .tui-pagination {
+        & .tui-first,
+        & .tui-last,
+        & .tui-prev,
+        & .tui-next,
+        & .tui-prev-is-ellip,
+        & .tui-next-is-ellip {
+            background-color: inherit;
+            color: $white-text-color;
 
-        &:hover {
-            color: $black-text-color;
+            &:hover {
+                color: $black-text-color;
+                background-color: #fff;
+            }
         }
-    }
-
-    .tui-first {
-        color: #fff;
+        .tui-page-btn {
+            color: #fff;
+    
+            &:hover {
+                color: $black-text-color;
+                background-color: #fff;
+            }
+    
+            &.tui-is-disabled {
+                &:hover {
+                    background-color: inherit;
+                }
+            }
+        }
     }
 }
 
