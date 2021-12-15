@@ -73,13 +73,16 @@ function checkCurrentPage() {
         />
         </form>`;
     refs.changeableBlock.insertAdjacentHTML('beforeend', searchMarkup);
+    localStorage.setItem('current-page', 'home');
   } else {
     const buttonsMarkup = `<div class="buttons-block">
         <button type="button" class="button primary-button">Watched</button>
         <button type="button" class="button secondary-button">Queue</button>
         </div>`;
     refs.changeableBlock.insertAdjacentHTML('beforeend', buttonsMarkup);
+    localStorage.setItem('current-page', 'my-library');
   }
+  
 }
 
 document.addEventListener('click', onMyLibraryLinkClick);
@@ -93,6 +96,7 @@ function onMyLibraryLinkClick(e) {
     refs.gallery.innerHTML = '';
     fetchWatchedFilms();
     stopSpinner();
+    showEmptyState();
   }
 }
 
@@ -106,6 +110,7 @@ function onWatchedBtnClick(e) {
     getRefs().btnQueue.style.border = '1px solid #fff';
     refs.gallery.innerHTML = '';
     fetchWatchedFilms();
+    showEmptyState();
   }
 }
 
@@ -119,6 +124,7 @@ function onQueueBtnClick(e) {
     getRefs().btnWatched.style.border = '1px solid #fff';
     refs.gallery.innerHTML = '';
     fetchQueueFilms();
+    showEmptyState();
   }
 }
 
@@ -130,6 +136,8 @@ export function render(films, path) {
       getMovieId(film).then(data => {
         const markup = watched(data);
         refs.gallery.insertAdjacentHTML('beforeend', markup);
+        
+        hideEmptyState();
         stopSpinner();
       });
     }
@@ -140,6 +148,8 @@ export function render(films, path) {
       getMovieId(film).then(data => {
         const markup = watched(data);
         refs.gallery.insertAdjacentHTML('beforeend', markup);
+
+        hideEmptyState();
         stopSpinner();
       });
     }
@@ -161,4 +171,21 @@ export function renderInModaBtnClick(films, path) {
       });
     }
   }
+}
+
+
+function hideEmptyState() {
+    const savedPage = localStorage.getItem('current-page');
+    const galleryCard = document.querySelector('.gallery__card');
+        if(savedPage === 'my-library' && galleryCard) {
+            console.log('there is a card');
+            refs.emptyLibrary.classList.add('is-hidden');
+        }
+}
+
+function showEmptyState() {
+    const savedPage = localStorage.getItem('current-page');
+        if(savedPage === 'my-library' && refs.gallery.innerHTML === '') {
+            refs.emptyLibrary.classList.remove('is-hidden');
+        }
 }
