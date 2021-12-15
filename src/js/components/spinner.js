@@ -10,6 +10,6 @@ export function runSpinner() {
 }
 
 export function stopSpinner() {
-  // Loading.remove();
-  Loading.remove(1000);
+  Loading.remove();
+  // Loading.remove(1000);
 }

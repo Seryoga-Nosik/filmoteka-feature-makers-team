@@ -17,11 +17,15 @@ function resetMarkup() {
 
 export function renderTrandingFilms(page) {
   resetMarkup();
+  runSpinner();
+
   getTrendingMovies(page).then(data => {
     if (data.normalizedMovies.length === 0) {
       Notify.failure('Sorry, no movies found. Please reload page.');
       refs.pagination.classList.add('is-hidden');
       resetMarkup();
+      stopSpinner();
+
       return;
     }
 
@@ -30,13 +34,16 @@ export function renderTrandingFilms(page) {
     refs.gallery.insertAdjacentHTML('beforeend', markup);
 
     // якщо перша сторінка і фільмів < 20
-    if(page === 1 && normalizedMovies.length < MAX_GENRE_LENGTH){
+    if (page === 1 && normalizedMovies.length < MAX_GENRE_LENGTH) {
       refs.pagination.classList.add('is-hidden');
     }
+    stopSpinner();
   });
 }
 
 renderTrandingFilms(page);
+
+stopSpinner();
 
 pagination.on('afterMove', event => {
   const page = event.page;

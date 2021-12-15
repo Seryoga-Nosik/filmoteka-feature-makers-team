@@ -6,12 +6,16 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import { getMovieInfo, getTrailerMovie } from '../apiService';
 import { addToWatched, addToQueue } from './firebase/writeToFirebase';
 import { comparisonWithFirebase } from './firebase/comparisonWithFirebase';
+import { runSpinner, stopSpinner } from './spinner';
 
 const refs = getRefs();
 
 refs.gallery.addEventListener('click', onClickHandler);
 function onClickHandler(e) {
   e.preventDefault();
+
+  runSpinner();
+
   if (e.target.nodeName !== 'IMG') {
     return;
   }
@@ -22,6 +26,7 @@ function onClickHandler(e) {
       const markup = modalTpl(movie);
       const lightbox = basicLightbox.create(markup);
       lightbox.show();
+      stopSpinner();
 
       //Comparison with firebase
       comparisonWithFirebase();
@@ -31,11 +36,14 @@ function onClickHandler(e) {
       getRefs().addToQueueBtn.addEventListener('click', addToQueue);
 
       async function getTrailer(e) {
+        runSpinner();
+
         const key = await getTrailerMovie(movieId);
         const trailer = basicLightbox.create(`
            <iframe width="70%" height="70%" src='https://www.youtube.com/embed/${key}?autoplay=1'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>
           `);
         trailer.show();
+        stopSpinner();
 
         window.addEventListener('keydown', closeTrailerByEsc);
         function closeTrailerByEsc(e) {

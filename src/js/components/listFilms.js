@@ -1,9 +1,12 @@
 import getRefs from '../refs';
 const refs = getRefs();
 import { renderTrandingFilms } from './gallery';
+import { runSpinner, stopSpinner } from './spinner';
 
-refs.homeLink.addEventListener('click', onHomeClick)
+refs.homeLink.addEventListener('click', onHomeClick);
 
 function onHomeClick(e) {
-    renderTrandingFilms(1);
+  runSpinner();
+  renderTrandingFilms(1);
+  stopSpinner();
 }
