@@ -88,7 +88,8 @@ function showUserName(user) {
     const name = document.createElement('p');
     name.textContent = user;
     name.id = 'user-name';
-    name.style.fontSize = '14px';
+    name.classList.add('user-name');
+    // name.style.fontSize = '14px';
     if (!document.getElementById('user-name')) {
       document.getElementById('login').prepend(name);
       document.querySelector('.sing-in').remove();
@@ -102,7 +103,8 @@ function shoeSignOut() {
   const signOut = document.createElement('p');
   signOut.textContent = 'Sign out';
   signOut.id = 'sing-out';
-  signOut.style.fontSize = '14px';
+  signOut.classList.add('sign-out');
+  // signOut.style.fontSize = '14px';
   if (!document.getElementById('sing-out')) {
     document.getElementById('login').prepend(signOut);
     document.querySelector('.sing-in').remove();
@@ -114,7 +116,7 @@ function showSingIn() {
   const signIn = document.createElement('p');
   signIn.textContent = 'Sign in';
   signIn.id = 'sign-in';
-  signIn.style.fontSize = '14px';
+  // signIn.style.fontSize = '14px';
   signIn.classList.add('sing-in');
   document.getElementById('login').before(signIn);
 }

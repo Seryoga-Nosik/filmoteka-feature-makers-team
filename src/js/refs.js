@@ -22,5 +22,6 @@ export default function getRefs() {
     btnQueue: document.querySelector('.secondary-button'),
     loginGoogleBtn: document.getElementById('login-google'),
     logoutGoogleBtn: document.getElementById('logout-google'),
+    themeBtn: document.querySelector('.theme-button'),
   };
 }
