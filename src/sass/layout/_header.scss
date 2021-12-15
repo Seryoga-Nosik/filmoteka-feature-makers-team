@@ -1,6 +1,8 @@
 .header-container {
-  padding-top: 50px;
-  padding-bottom: 60px;
+  position: relative;
+  padding: 55px 0;
+  // padding-top: 50px;
+  // padding-bottom: 60px;
   font-family: 'Roboto';
   color: $white-text-color;
 }
@@ -81,9 +83,24 @@
 }
 
 // Login & Registration
-.sing-in{
-padding-right: 10px;
-font-size: 14px;
+.sing-in,
+.sign-out,
+.user-name {
+  margin-right: 5px;
+  padding: 0;
+  font-size: 14px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.sign-out,
+.user-name {
+  padding: 3px 0;
+  @media screen and (max-width: 768px) {
+    padding: 2px 0;
+  }
 }
 
 .navigation {
@@ -108,12 +125,20 @@ font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  &__item:not(:last-child) {
-    margin-right: 10px;
-  }
+  // &__item:not(:last-child) {
+  //   margin-right: 10px;
+  // }
 
   @media screen and (min-width: 768px) {
     margin: 0 0 0 auto;
+  }
+
+  &__item {
+    height: 25px;
+
+    @media screen and (max-width: 768px) {
+      height: 20px;
+    }
   }
 }
 
