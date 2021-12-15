@@ -89,6 +89,7 @@ document.addEventListener('click', onQueueBtnClick);
 function onMyLibraryLinkClick(e) {
   if (e.target == getRefs().myLibraryLink) {
     runSpinner();
+    getRefs().btnWatched.setAttribute("data-active", true);
     refs.gallery.innerHTML = '';
     fetchWatchedFilms();
     stopSpinner();
@@ -97,6 +98,8 @@ function onMyLibraryLinkClick(e) {
 
 function onWatchedBtnClick(e) {
   if (e.target == getRefs().btnWatched) {
+    getRefs().btnWatched.setAttribute("data-active", true);
+    getRefs().btnQueue.setAttribute("data-active", false);
     getRefs().btnWatched.style.backgroundColor = '#ff6b01';
     getRefs().btnWatched.style.border = 'none';
     getRefs().btnQueue.style.backgroundColor = 'rgba(145, 145, 145, 0.25)';
@@ -108,6 +111,8 @@ function onWatchedBtnClick(e) {
 
 function onQueueBtnClick(e) {
   if (e.target == getRefs().btnQueue) {
+    getRefs().btnQueue.setAttribute("data-active", true);
+    getRefs().btnWatched.setAttribute("data-active", false);
     getRefs().btnQueue.style.backgroundColor = '#ff6b01';
     getRefs().btnQueue.style.border = 'none';
     getRefs().btnWatched.style.backgroundColor = 'rgba(145, 145, 145, 0.25)';

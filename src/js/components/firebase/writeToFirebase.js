@@ -54,12 +54,21 @@ function getData(uid, path, e, setData) {
           films.splice(indexFilm, 1);
           // console.log(films); //Test
           setData(uid, path, films, e);
-          renderInModaBtnClick(films,path);
+          renderInModaBtnClick(films, path);
         } else {
           films.push(newId);
           // console.log(films); //Test
           setData(uid, path, films, e);
-          renderInModaBtnClick(films,path);
+
+          if (getRefs().myLibraryLink.classList.contains('is-current')) {
+            if (e.target.textContent === 'ADD TO QUEUE' && getRefs().btnWatched.dataset.active) {
+              return;
+            }
+            if (e.target.textContent === 'ADD TO WATCHED' && getRefs().btnQueue.dataset.active) {
+              return;
+            }
+          }
+          renderInModaBtnClick(films, path);
         }
       } else {
         setNewData(uid, path, e);
