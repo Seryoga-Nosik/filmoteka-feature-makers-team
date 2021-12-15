@@ -54,11 +54,12 @@ function getData(uid, path, e, setData) {
           films.splice(indexFilm, 1);
           // console.log(films); //Test
           setData(uid, path, films, e);
-          renderInModaBtnClick(films,path)
+          renderInModaBtnClick(films,path);
         } else {
           films.push(newId);
           // console.log(films); //Test
           setData(uid, path, films, e);
+          renderInModaBtnClick(films,path);
         }
       } else {
         setNewData(uid, path, e);
