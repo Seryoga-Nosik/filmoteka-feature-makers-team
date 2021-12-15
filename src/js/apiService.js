@@ -5,6 +5,7 @@ import noposter from '../images/no-poster.png';
 axios.defaults.baseURL = BASE_URL;
 
 export let totalPages = 1;
+export const MAX_GENRE_LENGTH = 20;
 
 export async function getTrendingMovies(page) {
   try {
@@ -80,7 +81,6 @@ async function normalizer(data) {
   const genresArr = await getGenres();
 
   const updateMovie = movie => {
-    const MAX_GENRE_LENGTH = 20;
     let genresLength = 0;
     const genres = movie.genre_ids
       .map(genreId => genresArr[genreId])

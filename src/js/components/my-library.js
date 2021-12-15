@@ -36,12 +36,14 @@ function onMyLibLinkClick(event) {
     event.preventDefault();
     refs.header.classList.remove('home-header');
     refs.header.classList.add('my-lib-header');
+    refs.pagination.classList.add('is-hidden');
 }
 
 function onHomeLinkClick(event) {
     event.preventDefault();
     refs.header.classList.remove('my-lib-header');
     refs.header.classList.add('home-header');
+    refs.pagination.classList.remove('is-hidden');
 }
 
 function onLogoClick(event) {
