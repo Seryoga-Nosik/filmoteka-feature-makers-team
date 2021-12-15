@@ -1,191 +1,203 @@
-.theme-button {    
-    position: absolute;
-    top: 20px;
-    right:0;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0px 0px 4px -1px #dcdcdc;
-    cursor: pointer;
+.theme-button {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px -1px #dcdcdc;
+  cursor: pointer;
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
-    padding: 2px;
-    fill: #ffb92f;
-    
-    &:hover {
-        fill: #fff;
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  fill: #ffb92f;
+
+  &:hover {
+    fill: #fff;
   }
 }
 
 #light-theme {
-    display: inline-block;
+  display: inline-block;
 }
 
 #dark-theme {
-    display: none;
+  display: none;
 }
 
 // Light theme
 body.light-theme {
-    background-color:$main-bg-color;
+  background-color: $main-bg-color;
+  color: $black-text-color;
+
+  #light-theme {
+    display: inline-block;
+  }
+
+  #dark-theme {
+    display: none;
+  }
+
+  .trailer__button {
+    background-color: $white-text-color;
+    border: 1px solid $black-text-color;
     color: $black-text-color;
+  }
+  .trailer__button:hover,
+  .trailer__button:focus {
+    color: $orange-text-color;
+    border-color: $orange-text-color;
+  }
+  .trailer__button:hover:after {
+    color: $orange-text-color;
+    border-color: $orange-text-color;
+    width: calc(100% - 10px);
+    height: calc(100% + 10px);
+  }
 
-    #light-theme {
-        display: inline-block;
+  .modal {
+    background-color: $main-bg-color;
+
+    .card__name,
+    .item__value,
+    .item__value--cnt,
+    .card__about-caption,
+    .card__about {
+      color: $black-text-color;
     }
 
-    #dark-theme {
-        display: none;
+    .item__value--avg {
+      color: $white-text-color;
+    }
+  }
+
+  .tui-pagination {
+    & .tui-first,
+    & .tui-last,
+    & .tui-prev,
+    & .tui-next,
+    & .tui-prev-is-ellip,
+    & .tui-next-is-ellip {
+      background-color: inherit;
+      color: $black-text-color;
     }
 
-    .trailer__button {   
-        background-color: $white-text-color;
-        border: 1px solid $black-text-color;
-        color: $black-text-color;  
-      }
-    
-    .modal {
-        background-color: $main-bg-color;
-        
-        .card__name,
-        .item__value,
-        .item__value--cnt,
-        .card__about-caption,
-        .card__about {
-            color: $black-text-color;
-        }
-
-        .item__value--avg {
-            color: $white-text-color;
-        }
+    .tui-page-btn {
+      &:hover {
+        color: $black-text-color;
+        background-color: $orange-btn-color;
       }
 
-      .tui-pagination {
-        & .tui-first,
-        & .tui-last,
-        & .tui-prev,
-        & .tui-next,
-        & .tui-prev-is-ellip,
-        & .tui-next-is-ellip {
-            background-color: inherit;
-            color: $black-text-color;
-        }
-
-        .tui-page-btn {
-            &:hover {
-                color: $black-text-color;
-                background-color: $orange-btn-color;
-            }
-    
-            &.tui-is-disabled {
-                &:hover {
-                    background-color: inherit;
-                }
-            }
+      &.tui-is-disabled {
+        &:hover {
+          background-color: inherit;
         }
       }
-
-    .footer {
-        background-color: $footer-bg-color;
-      }
-      
-    .footer-text {
-        color: $gray-text-color ;
     }
+  }
+
+  .footer {
+    background-color: $footer-bg-color;
+  }
+
+  .footer-text {
+    color: $gray-text-color;
+  }
 }
 
 // Dark theme
 body.dark-theme {
-    background-color: $dark-theme-color;
+  background-color: $dark-theme-color;
+  color: $white-text-color;
+
+  #light-theme {
+    display: none;
+  }
+
+  #dark-theme {
+    display: inline-block;
+  }
+
+  .trailer__button {
+    background-color: $black-text-color;
+    border: 1px solid $white-text-color;
+    color: $white-text-color;
+  }
+  .trailer__button:hover,
+  .trailer__button:focus {
+    color: $orange-text-color;
+    border-color: $orange-text-color;
+  }
+  .trailer__button:hover:after {
+    color: $orange-text-color;
+    border-color: $orange-text-color;
+    width: calc(100% - 10px);
+    height: calc(100% + 10px);
+  }
+
+  .modal {
+    background-color: #353535;
     color: $white-text-color;
 
-    #light-theme {
-        display: none;
+    .item__value,
+    .card__about-caption,
+    .card__about,
+    .mobile-about-caption,
+    .mobile-about {
+      color: $white-text-color;
     }
 
-    #dark-theme {
-        display: inline-block;
+    .card__name {
+      color: $white-text-color;
     }
 
-    .trailer__button {   
-        background-color:  $black-text-color ;
-        border: 1px solid $white-text-color;
-        color: $white-text-color;   
+    &__close-btn {
+      fill: $main-bg-color;
+    }
+  }
+
+  .footer {
+    background-color: #626262;
+  }
+
+  .footer-text {
+    color: $black-text-color;
+  }
+
+  .tui-pagination {
+    & .tui-first,
+    & .tui-last,
+    & .tui-prev,
+    & .tui-next,
+    & .tui-prev-is-ellip,
+    & .tui-next-is-ellip {
+      background-color: inherit;
+      color: $white-text-color;
+
+      &:hover {
+        color: $black-text-color;
+        background-color: #fff;
+      }
+    }
+    .tui-page-btn {
+      color: #fff;
+
+      &:hover {
+        color: $black-text-color;
+        background-color: #fff;
       }
 
-    .modal {
-        background-color: #353535;
-        color: $white-text-color;
-
-        .item__value,
-        .card__about-caption,
-        .card__about,
-        .mobile-about-caption,
-        .mobile-about {
-          color:$white-text-color;
+      &.tui-is-disabled {
+        &:hover {
+          background-color: inherit;
         }
-
-        .card__name {
-            color:$white-text-color ;
-        }
-
-        &__close-btn{
-    
-            fill: $main-bg-color;
-            }
+      }
     }
-
-    .footer{
-        background-color: #626262;
-    }
-   
-    .footer-text{
-        color: $black-text-color ;
-    }
-
-    .tui-pagination {
-        & .tui-first,
-        & .tui-last,
-        & .tui-prev,
-        & .tui-next,
-        & .tui-prev-is-ellip,
-        & .tui-next-is-ellip {
-            background-color: inherit;
-            color: $white-text-color;
-
-            &:hover {
-                color: $black-text-color;
-                background-color: #fff;
-            }
-        }
-        .tui-page-btn {
-            color: #fff;
-    
-            &:hover {
-                color: $black-text-color;
-                background-color: #fff;
-            }
-    
-            &.tui-is-disabled {
-                &:hover {
-                    background-color: inherit;
-                }
-            }
-        }
-    }
+  }
 }
-
-
-
-
-
-
-
-
-

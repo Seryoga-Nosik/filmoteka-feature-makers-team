@@ -1,5 +1,5 @@
 .basicLightbox--visible {
-  overflow-y: auto;
+  overflow-y: scroll;
   backdrop-filter: blur(10px);
 }
 
@@ -275,17 +275,6 @@
   margin: auto;
   border: 2px solid rgba(0, 0, 0, 0);
   transition: 0.4s;
-}
-.trailer__button:hover,
-.trailer__button:focus {
-  color: $orange-text-color;
-  border-color: $orange-text-color;
-}
-.trailer__button:hover:after {
-  color: $orange-text-color;
-  border-color: $orange-text-color;
-  width: calc(100% - 10px);
-  height: calc(100% + 10px);
 }
 
 .modal__buttons {
