@@ -12,11 +12,13 @@ const refs = getRefs();
 const DEBOUNCE_DELAY = 500;
 
 // localStorage.setItem('current-page', 'home');
-const currentPage = localStorage.getItem('current-page');
+// const currentPage = localStorage.getItem('current-page');
 
-if (currentPage) {
-    refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
-}
+// if (currentPage) {
+//     refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+// }
+
+refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
 async function onSearch(event) { 
     console.log('input')
