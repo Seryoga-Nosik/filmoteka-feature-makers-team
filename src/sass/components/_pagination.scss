@@ -146,24 +146,28 @@
     background-position: 0px -24px;
   }
 
-  & .tui-is-disabled:hover {
-    background: #f7f7f7;
-    cursor: default;
+  & .tui-is-disabled {
+    display: none;
   }
 
-  & .tui-is-disabled .tui-ico-prev {
-    background-position: -26px -12px;
-  }
+  // & .tui-is-disabled:hover {
+  //   background: #f7f7f7;
+  //   cursor: default;
+  // }
 
-  & .tui-is-disabled .tui-ico-first {
-    background-position: -13px 0px;
-  }
+  // & .tui-is-disabled .tui-ico-prev {
+  //   background-position: -26px -12px;
+  // }
 
-  & .tui-is-disabled .tui-ico-next {
-    background-position: -21px -24px;
-  }
+  // & .tui-is-disabled .tui-ico-first {
+  //   background-position: -13px 0px;
+  // }
 
-  & .tui-is-disabled .tui-ico-last {
-    background-position: -13px -12px;
-  }
+  // & .tui-is-disabled .tui-ico-next {
+  //   background-position: -21px -24px;
+  // }
+
+  // & .tui-is-disabled .tui-ico-last {
+  //   background-position: -13px -12px;
+  // }
 }
