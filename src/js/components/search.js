@@ -4,26 +4,27 @@ import { runSpinner, stopSpinner } from './spinner';
 import { renderTrandingFilms } from './gallery';
 import getRefs from '../refs';
 
-import debounce from 'lodash.debounce';
+// import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.2.min';
+// import { DEBOUNCE_DELAY } from '../constants';
 
 const refs = getRefs();
-const DEBOUNCE_DELAY = 500;
+// const DEBOUNCE_DELAY = 500;
 
-refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
-refs.formSearch.addEventListener('submit', onSearch);
+// refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+// refs.formSearch.addEventListener('submit', onSearch);
 
-async function onSearch(event) {
+export async function onSearch(event) {
   event.preventDefault();
 
-  window.addEventListener('keydown', (e) => {
-    if(e.code === 'Enter') {
-        e.preventDefault();
+  window.addEventListener('keydown', e => {
+    if (e.code === 'Enter') {
+      e.preventDefault();
     }
   });
- 
-  const inputData = refs.searchBox.value.trim();
+
+  const inputData = document.querySelector('.form-search__input').value.trim();
 
   if (!inputData) {
     onEmptyInput();

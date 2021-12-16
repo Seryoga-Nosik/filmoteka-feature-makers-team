@@ -7,6 +7,9 @@ import { getMovieId } from '../apiService';
 import watched from '../../template/listFilms.hbs';
 import { renderTrandingFilms } from './gallery';
 import { runSpinner, stopSpinner } from './spinner';
+import { DEBOUNCE_DELAY } from '../constants';
+import { onSearch } from './search';
+import debounce from 'lodash.debounce';
 
 refs.navList.addEventListener('click', onNavItemClick);
 refs.myLibraryLink.addEventListener('click', onMyLibLinkClick);
@@ -14,6 +17,10 @@ refs.homeLink.addEventListener('click', onHomeLinkClick);
 refs.logo.addEventListener('click', onLogoClick);
 
 checkCurrentPage();
+document
+  .querySelector('.form-search__input')
+  .addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+// refs.formSearch.addEventListener('submit', onSearch);
 
 function onNavItemClick(event) {
   if (event.target.nodeName !== 'A') {
@@ -40,11 +47,11 @@ function onMyLibLinkClick(event) {
 
 function onHomeLinkClick(event) {
   event.preventDefault();
+
   refs.header.classList.remove('my-lib-header');
   refs.header.classList.add('home-header');
   refs.pagination.classList.remove('is-hidden');
 
-  checkCurrentPage();
   document.location.reload();
 }
 
@@ -59,7 +66,10 @@ function onLogoClick(event) {
   refs.myLibraryLink.classList.remove('is-current');
 
   checkCurrentPage();
-  document.location.reload();
+  document
+    .querySelector('.form-search__input')
+    .addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+  // document.location.reload();
   renderTrandingFilms();
 }
 
@@ -76,6 +86,7 @@ function checkCurrentPage() {
           placeholder="Find movies..."
         />
         </form>`;
+
     refs.changeableBlock.insertAdjacentHTML('beforeend', searchMarkup);
     localStorage.setItem('current-page', 'home');
   } else {
@@ -86,7 +97,6 @@ function checkCurrentPage() {
     refs.changeableBlock.insertAdjacentHTML('beforeend', buttonsMarkup);
     localStorage.setItem('current-page', 'my-library');
   }
-  
 }
 
 document.addEventListener('click', onMyLibraryLinkClick);
@@ -96,7 +106,7 @@ document.addEventListener('click', onQueueBtnClick);
 function onMyLibraryLinkClick(e) {
   if (e.target == getRefs().myLibraryLink) {
     runSpinner();
-    getRefs().myLibraryLink.setAttribute("data-active", "watched");
+    getRefs().myLibraryLink.setAttribute('data-active', 'watched');
     refs.gallery.innerHTML = '';
     fetchWatchedFilms();
     stopSpinner();
@@ -106,7 +116,7 @@ function onMyLibraryLinkClick(e) {
 
 function onWatchedBtnClick(e) {
   if (e.target == getRefs().btnWatched) {
-    getRefs().myLibraryLink.setAttribute("data-active", "watched");
+    getRefs().myLibraryLink.setAttribute('data-active', 'watched');
     getRefs().btnWatched.style.backgroundColor = '#ff6b01';
     getRefs().btnWatched.style.border = 'none';
     getRefs().btnQueue.style.backgroundColor = 'rgba(145, 145, 145, 0.25)';
@@ -119,7 +129,7 @@ function onWatchedBtnClick(e) {
 
 function onQueueBtnClick(e) {
   if (e.target == getRefs().btnQueue) {
-    getRefs().myLibraryLink.setAttribute("data-active", "queue");
+    getRefs().myLibraryLink.setAttribute('data-active', 'queue');
     getRefs().btnQueue.style.backgroundColor = '#ff6b01';
     getRefs().btnQueue.style.border = 'none';
     getRefs().btnWatched.style.backgroundColor = 'rgba(145, 145, 145, 0.25)';
@@ -138,7 +148,7 @@ export function render(films, path) {
       getMovieId(film).then(data => {
         const markup = watched(data);
         refs.gallery.insertAdjacentHTML('beforeend', markup);
-        
+
         hideEmptyState();
         stopSpinner();
       });
@@ -175,19 +185,18 @@ export function renderInModaBtnClick(films, path) {
   }
 }
 
-
 function hideEmptyState() {
-    const savedPage = localStorage.getItem('current-page');
-    const galleryCard = document.querySelector('.gallery__card');
-        if(savedPage === 'my-library' && galleryCard) {
-            console.log('there is a card');
-            refs.emptyLibrary.classList.add('is-hidden');
-        }
+  const savedPage = localStorage.getItem('current-page');
+  const galleryCard = document.querySelector('.gallery__card');
+  if (savedPage === 'my-library' && galleryCard) {
+    console.log('there is a card');
+    refs.emptyLibrary.classList.add('is-hidden');
+  }
 }
 
 function showEmptyState() {
-    const savedPage = localStorage.getItem('current-page');
-        if(savedPage === 'my-library' && refs.gallery.innerHTML === '') {
-            refs.emptyLibrary.classList.remove('is-hidden');
-        }
+  const savedPage = localStorage.getItem('current-page');
+  if (savedPage === 'my-library' && refs.gallery.innerHTML === '') {
+    refs.emptyLibrary.classList.remove('is-hidden');
+  }
 }
