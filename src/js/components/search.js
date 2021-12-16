@@ -11,26 +11,22 @@ import 'notiflix/dist/notiflix-3.2.2.min';
 const refs = getRefs();
 const DEBOUNCE_DELAY = 500;
 
-// localStorage.setItem('current-page', 'home');
-// const currentPage = localStorage.getItem('current-page');
-
-// if (currentPage) {
-//     refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
-// }
-
 refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
-
+refs.formSearch.addEventListener('submit', onSearch);
 
 async function onSearch(event) {
-  window.addEventListener('keydown', e => {
-    if (e.code === 'Enter') {
-      e.preventDefault();
+  event.preventDefault();
 
+  window.addEventListener('keydown', (e) => {
+    if(e.code === 'Enter') {
+        e.preventDefault();
+    }
+  });
+ 
   const inputData = refs.searchBox.value.trim();
 
   if (!inputData) {
-    runSpinner();
-    stopSpinner();
+    onEmptyInput();
     refs.gallery.innerHTML = '';
     renderTrandingFilms(1);
     refs.noResultsBlock.classList.add('is-hidden');
@@ -75,5 +71,9 @@ function onFetchSuccess(total) {
 }
 
 function onFetchError(error) {
-  Notify.failure('Oops, there is no movie with that name');
+  Notify.failure('Oops, there is no movie with that name.');
+}
+
+function onEmptyInput(error) {
+  Notify.warning('Change your search query and try again.');
 }
