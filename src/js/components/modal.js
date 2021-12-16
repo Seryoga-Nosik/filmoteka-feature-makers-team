@@ -14,25 +14,37 @@ refs.gallery.addEventListener('click', onClickHandler);
 function onClickHandler(e) {
   e.preventDefault();
 
-  runSpinner();
-
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+
+  runSpinner();
+
   document.body.classList.add('body-overflow--hidden');
   const movieId = e.target.id;
   getMovieInfo(movieId)
     .then(movie => {
       const markup = modalTpl(movie);
       const lightbox = basicLightbox.create(markup);
+
       lightbox.show();
+
+      getRefs().lightbox.setAttribute(
+        'style',
+        `background-image: 
+        linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)),
+        url("https://image.tmdb.org/t/p/w500${movie.backdrop_path}");
+        background-position: center;
+        background-size: cover;`,
+      );
+
       stopSpinner();
 
       //Comparison with firebase
       comparisonWithFirebase();
-      //Add to watched
+      //Add to watched or remove from watched
       getRefs().addToWatchedBtn.addEventListener('click', addToWatched);
-      //Add to queue
+      //Add to queue or remove from queue
       getRefs().addToQueueBtn.addEventListener('click', addToQueue);
 
       async function getTrailer(e) {

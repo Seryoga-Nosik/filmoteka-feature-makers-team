@@ -20,65 +20,60 @@ const DEBOUNCE_DELAY = 500;
 
 refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
-async function onSearch(event) { 
-    console.log('input')
-    
-    window.addEventListener('keydown', (e) => {
-        if(e.code === 'Enter') {
-            e.preventDefault();
-        }
-    });
 
+async function onSearch(event) {
+  window.addEventListener('keydown', e => {
+    if (e.code === 'Enter') {
+      e.preventDefault();
 
-    const inputData = refs.searchBox.value.trim();
+  const inputData = refs.searchBox.value.trim();
 
-    if (!inputData) {
-        runSpinner();
-        stopSpinner();
-        refs.gallery.innerHTML = '';
-        renderTrandingFilms(1);
-        refs.noResultsBlock.classList.add('is-hidden');
-        return;
-    } 
+  if (!inputData) {
+    runSpinner();
+    stopSpinner();
+    refs.gallery.innerHTML = '';
+    renderTrandingFilms(1);
+    refs.noResultsBlock.classList.add('is-hidden');
+    return;
+  }
 
-    try {
-        const movies = await getMoviesSearchQuery(inputData, 1);
-        refs.noResultsBlock.classList.add('is-hidden');
+  try {
+    const movies = await getMoviesSearchQuery(inputData, 1);
+    refs.noResultsBlock.classList.add('is-hidden');
 
-        if (movies.totalResults === 0) {
-            stopSpinner();
-            onFetchError();
-            refs.gallery.innerHTML = '';
-            refs.noResultsBlock.classList.remove('is-hidden');
-            refs.pagination.classList.add('is-hidden');
-            return;
-        }
-
-        onFetchSuccess(movies.totalResults);
-        runSpinner(); 
-        renderMovies(movies.normalizedMovies);
-        stopSpinner();
-        
-        if (movies.totalResults <= 20) {
-            refs.pagination.classList.add('is-hidden');
-        }
-
-    } catch (error) {
-        stopSpinner();
-        onFetchError();
+    if (movies.totalResults === 0) {
+      stopSpinner();
+      onFetchError();
+      refs.gallery.innerHTML = '';
+      refs.noResultsBlock.classList.remove('is-hidden');
+      refs.pagination.classList.add('is-hidden');
+      return;
     }
+
+    onFetchSuccess(movies.totalResults);
+    runSpinner();
+    renderMovies(movies.normalizedMovies);
+    stopSpinner();
+
+    if (movies.totalResults <= 20) {
+      refs.pagination.classList.add('is-hidden');
+    }
+  } catch (error) {
+    stopSpinner();
+    onFetchError();
+  }
 }
 
 function renderMovies(data) {
-    refs.gallery.innerHTML = '';
-    const markup = cardTemplate(data);
-    refs.gallery.insertAdjacentHTML('beforeend', markup);
+  refs.gallery.innerHTML = '';
+  const markup = cardTemplate(data);
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
 }
 
 function onFetchSuccess(total) {
-    Notify.success(`Hooray! We found ${total} movies.`);
+  Notify.success(`Hooray! We found ${total} movies.`);
 }
 
 function onFetchError(error) {
-    Notify.failure("Oops, there is no movie with that name");
+  Notify.failure('Oops, there is no movie with that name');
 }

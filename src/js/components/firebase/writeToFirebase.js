@@ -50,24 +50,32 @@ function getData(uid, path, e, setData) {
           e.target.textContent === 'REMOVE FROM QUEUE' ||
           e.target.textContent === 'REMOVE FROM WATCHED'
         ) {
+          console.log(e.target.textContent);
           const indexFilm = films.indexOf(newId);
           films.splice(indexFilm, 1);
-          // console.log(films); //Test
+
           setData(uid, path, films, e);
+
           renderInModaBtnClick(films, path);
         } else {
           films.push(newId);
-          // console.log(films); //Test
-          setData(uid, path, films, e);
 
+          setData(uid, path, films, e);
           if (getRefs().myLibraryLink.classList.contains('is-current')) {
-            if (e.target.textContent === 'ADD TO QUEUE' && getRefs().btnWatched.dataset.active) {
+            if (
+              e.target.textContent === 'ADD TO QUEUE' &&
+              getRefs().myLibraryLink.dataset.active === 'watched'
+            ) {
               return;
             }
-            if (e.target.textContent === 'ADD TO WATCHED' && getRefs().btnQueue.dataset.active) {
+            if (
+              e.target.textContent === 'ADD TO WATCHED' &&
+              getRefs().myLibraryLink.dataset.active === 'queue'
+            ) {
               return;
             }
           }
+
           renderInModaBtnClick(films, path);
         }
       } else {

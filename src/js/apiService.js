@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { BASE_URL, API_KEY } from './constants';
 import noposter from '../images/no-poster.png';
+import { runSpinner, stopSpinner } from './components/spinner';
 
 axios.defaults.baseURL = BASE_URL;
 
@@ -9,11 +10,13 @@ export const MAX_GENRE_LENGTH = 20;
 
 export async function getTrendingMovies(page) {
   try {
+    runSpinner();
     // const response = await axios.get(`/trending/movie/week?api_key=${API_KEY}&page=${page}`);
     const response = await axios.get(`/movie/popular?api_key=${API_KEY}&page=${page}`);
     const trendinMoviesData = await response.data;
     const trendinMovies = await trendinMoviesData.results;
     const normalizedMovies = await normalizer(trendinMovies);
+    stopSpinner();
     return { normalizedMovies, trendinMoviesData };
   } catch (error) {
     console.error(error);
@@ -37,6 +40,7 @@ export async function getGenres() {
 
 export async function getMoviesSearchQuery(searchQuery, page) {
   try {
+    runSpinner();
     const response = await axios.get(
       `/search/movie?api_key=${API_KEY}&page=${page}&language=en&query=${searchQuery}`,
     );
@@ -45,6 +49,7 @@ export async function getMoviesSearchQuery(searchQuery, page) {
     const popularMovies = await popularMoviesData.results;
     totalPages = popularMoviesData.total_pages;
     const normalizedMovies = await normalizer(popularMovies);
+    stopSpinner();
     return { totalResults, normalizedMovies, popularMovies };
   } catch (error) {
     console.error(error);
@@ -54,8 +59,10 @@ export async function getMoviesSearchQuery(searchQuery, page) {
 
 export async function getMovieInfo(movieId) {
   try {
+    runSpinner();
     const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
     const movieData = await response.data;
+    stopSpinner();
     return movieData;
   } catch (error) {
     console.error(error);
@@ -65,9 +72,11 @@ export async function getMovieInfo(movieId) {
 
 export async function getMovieId(movieId) {
   try {
+    runSpinner();
     const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
     const movieData = await response.data;
     const normalizedMovies = await normalizerMylib(movieData);
+    stopSpinner();
     return normalizedMovies;
   } catch (error) {
     console.error(error);
@@ -76,10 +85,12 @@ export async function getMovieId(movieId) {
 
 export async function getTrailerMovie(movieId) {
   try {
-    const response = await axios.get(`movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
+    runSpinner();
+    const response = await axios.get(`movie/${movieId}/videos?api_key=${API_KEY}&language=ru-ru`);
     const modalMovie = await response.data.results;
     const result = modalMovie.find(el => el.type === 'Trailer');
     const trailerKey = result.key;
+    stopSpinner();
     return trailerKey;
   } catch (error) {
     console.log(error);
@@ -122,8 +133,9 @@ async function normalizerMylib(data) {
     const MAX_GENRE_LENGTH = 20;
     let genresLength = 0;
 
-    const genres = movie.genres.flatMap(gener => gener.name)
-      .filter(q => (genresLength += q.length) <= MAX_GENRE_LENGTH)
+    const genres = movie.genres
+      .flatMap(gener => gener.name)
+      .filter(q => (genresLength += q.length) <= MAX_GENRE_LENGTH);
     if (genresLength > MAX_GENRE_LENGTH) genres.push('others...');
 
     let title = movie.title;
@@ -132,7 +144,7 @@ async function normalizerMylib(data) {
     }
 
     const release_date = movie.release_date ? movie.release_date.split('-')[0] : 'NA';
-    
+
     const movieUpdate = { ...movie, release_date, title, genres };
     return movieUpdate;
   };

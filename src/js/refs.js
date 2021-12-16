@@ -23,6 +23,7 @@ export default function getRefs() {
     loginGoogleBtn: document.getElementById('login-google'),
     logoutGoogleBtn: document.getElementById('logout-google'),
     themeBtn: document.querySelector('.theme-button'),
+    lightbox: document.querySelector('.basicLightbox'),
     emptyLibrary: document.querySelector('.library-empty'),
   };
 }
