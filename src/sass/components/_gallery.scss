@@ -99,7 +99,8 @@
 }
 
 // No results
-.no-results {
+.no-results,
+.library-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
