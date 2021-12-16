@@ -1,63 +1,80 @@
-<div class="modal" data-id="{{id}}">
-    <button type="button" class="modal__close-btn" aria-label='close modal'>
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g id="close">
-                <path id="Vector 1" d="M8 8L22 22" stroke="black" stroke-width="2" />
-                <path id="Vector 2" d="M8 22L22 8" stroke="black" stroke-width="2" />
-            </g>
-        </svg>
+<div class='modal' data-id='{{id}}'>
+  <div class='modal__card'>
+    <button type='button' class='modal__close-btn' aria-label='close modal'>
+      <svg
+        width='30'
+        height='30'
+        viewBox='0 0 30 30'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <g id='close'>
+          <path id='Vector 1' d='M8 8L22 22' stroke='black' stroke-width='2'></path>
+          <path id='Vector 2' d='M8 22L22 8' stroke='black' stroke-width='2'></path>
+        </g>
+      </svg>
     </button>
-    <div class="modal__card">
-        <div class="modal__image-thumb">
-            
-            <img src='https://image.tmdb.org/t/p/w500/{{poster_path}}'
-             alt='{{title}}'
-      />
-        </div>
+    <div class='modal__image-thumb'>
 
-
-        <div class="card__wrapper">
-            <h2 class="card__name">{{title}}</h2>
-            <table class="card__list">
-                <tr>
-                    <td class="item__label">Vote / Votes</td>
-                    <td class="item__value item__value--avg">{{vote_average}}</td>
-
-                    <td class="item__value item__value--cnt">/ {{vote_count}}</td>
-                </tr>
-                <tr>
-                    <td class="item__label">Popularity</td>
-                    <td class="item__value">{{popularity}}</td>
-                </tr>
-                <tr>
-                    <td class="item__label">Original Title</td>
-                    <td class="item__value">{{original_title}}</td>
-                </tr>
-                <tr>
-                    <td class="item__label">Genre</td>
-                    
-                    <td class="item__value item__value--gnr">{{#each genres}}<span>{{this.name}}</span><span class="comma">,</span>{{/each}}</td>
-                    
-                </tr>
-            </table>
-            <details class="mobile-about">
-                <summary class="mobile-about-caption">About</summary>
-            {{overview}}
-            </details>
-            <p class="card__about-caption">About</p>
-            <p class="card__about">
-            {{overview}}
-            </p>
-            <button class='trailer__button' type="button" id="btn-trailer">
-                TRAILER
-            </button>
-            <div class="modal__buttons">
-                <button class="btn modal__btn" type="button" id="btn-add-watched" data-lib="Watched"
-                    data-textcont="add to watched" data-textlib="watched">ADD TO WATCHED</button>
-                <button class="btn modal__btn" type="button" id="btn-add-to-queue" data-lib="Queue"
-                    data-textcont="add to queue" data-textlib="in queue">ADD TO QUEUE</button>
-            </div>
-        </div>
+      <img src='https://image.tmdb.org/t/p/w500/{{poster_path}}' alt='{{title}}' />
     </div>
-    
+
+    <div class='card__wrapper'>
+      <h2 class='card__name'>{{title}}</h2>
+      <table class='card__list'>
+        <tr>
+          <td class='item__label'>Vote / Votes</td>
+          <td class='item__value item__value--avg'>{{vote_average}}</td>
+
+          <td class='item__value item__value--cnt'>/ {{vote_count}}</td>
+        </tr>
+        <tr>
+          <td class='item__label'>Popularity</td>
+          <td class='item__value'>{{popularity}}</td>
+        </tr>
+        <tr>
+          <td class='item__label'>Original Title</td>
+          <td class='item__value'>{{original_title}}</td>
+        </tr>
+        <tr>
+          <td class='item__label'>Genre</td>
+
+          <td class='item__value item__value--gnr'>{{#each genres}}<span>{{this.name}}</span><span
+                class='comma'
+              >,</span>{{/each}}</td>
+
+        </tr>
+      </table>
+      <details class='mobile-about'>
+        <summary class='mobile-about-caption'>About</summary>
+        {{overview}}
+      </details>
+      <p class='card__about-caption'>About</p>
+      <p class='card__about'>
+        {{overview}}
+      </p>
+      <button class='trailer__button' type='button' id='btn-trailer'>
+        TRAILER
+      </button>
+      <div class='modal__buttons'>
+        <button
+          class='btn modal__btn'
+          type='button'
+          id='btn-add-watched'
+          data-lib='Watched'
+          data-textcont='add to watched'
+          data-textlib='watched'
+        >ADD TO WATCHED</button>
+        <button
+          class='btn modal__btn'
+          type='button'
+          id='btn-add-to-queue'
+          data-lib='Queue'
+          data-textcont='add to queue'
+          data-textlib='in queue'
+        >ADD TO QUEUE</button>
+      </div>
+    </div>
+  </div>
+
 </div>

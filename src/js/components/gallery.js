@@ -6,8 +6,6 @@ import getRefs from '../refs';
 import { pagination } from './pagination.js';
 const refs = getRefs();
 
-// runSpinner();
-// stopSpinner();
 const page = pagination.getCurrentPage();
 
 function resetMarkup() {
