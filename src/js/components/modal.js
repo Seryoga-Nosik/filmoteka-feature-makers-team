@@ -42,9 +42,9 @@ function onClickHandler(e) {
 
       //Comparison with firebase
       comparisonWithFirebase();
-      //Add to watched
+      //Add to watched or remove from watched
       getRefs().addToWatchedBtn.addEventListener('click', addToWatched);
-      //Add to queue
+      //Add to queue or remove from queue
       getRefs().addToQueueBtn.addEventListener('click', addToQueue);
 
       async function getTrailer(e) {
