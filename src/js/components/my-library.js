@@ -175,13 +175,18 @@ export function renderInModaBtnClick(films, path) {
     runSpinner();
 
     refs.gallery.innerHTML = '';
-    for (const film of films) {
-      getMovieId(film).then(data => {
-        const markup = watched(data);
-        refs.gallery.insertAdjacentHTML('beforeend', markup);
-        stopSpinner();
-      });
+    if (films.length === 0) {
+      showEmptyState();
+    } else {
+      for (const film of films) {
+        getMovieId(film).then(data => {
+          const markup = watched(data);
+          refs.gallery.insertAdjacentHTML('beforeend', markup);
+        });
+      }
     }
+
+    stopSpinner();
   }
 }
 

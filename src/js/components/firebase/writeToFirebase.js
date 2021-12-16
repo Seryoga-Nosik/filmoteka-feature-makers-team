@@ -5,6 +5,8 @@ import { getDatabase, ref, set, child, get } from 'firebase/database';
 import getRefs from '../../refs';
 //import frow watched and queue
 import { renderInModaBtnClick } from '../my-library';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import 'notiflix/dist/notiflix-3.2.2.min';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -20,7 +22,7 @@ export function addToQueue(e) {
       const uid = user.uid;
 
       getData(uid, path, e, setData);
-    }
+    } 
   });
 }
 
@@ -50,7 +52,7 @@ function getData(uid, path, e, setData) {
           e.target.textContent === 'REMOVE FROM QUEUE' ||
           e.target.textContent === 'REMOVE FROM WATCHED'
         ) {
-          console.log(e.target.textContent);
+          // console.log(e.target.textContent);
           const indexFilm = films.indexOf(newId);
           films.splice(indexFilm, 1);
 

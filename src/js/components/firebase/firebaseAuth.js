@@ -65,6 +65,7 @@ logoutGoogleBtn.addEventListener('click', e => {
 
       removeSingOut();
       showSingIn();
+      document.location.reload();
 
       // console.log(`Logout.`);//Test
     })
