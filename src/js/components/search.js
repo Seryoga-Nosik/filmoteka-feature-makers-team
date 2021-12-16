@@ -12,16 +12,21 @@ const refs = getRefs();
 const DEBOUNCE_DELAY = 500;
 
 refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+refs.formSearch.addEventListener('submit', onSearch);
 
 async function onSearch(event) {
+  event.preventDefault();
 
-  onEnterBtnClick();
-    
+  window.addEventListener('keydown', (e) => {
+    if(e.code === 'Enter') {
+        e.preventDefault();
+    }
+  });
+ 
   const inputData = refs.searchBox.value.trim();
 
   if (!inputData) {
-    runSpinner();
-    stopSpinner();
+    onEmptyInput();
     refs.gallery.innerHTML = '';
     renderTrandingFilms(1);
     refs.noResultsBlock.classList.add('is-hidden');
@@ -66,17 +71,9 @@ function onFetchSuccess(total) {
 }
 
 function onFetchError(error) {
-  Notify.failure('Oops, there is no movie with that name');
+  Notify.failure('Oops, there is no movie with that name.');
 }
 
-function onEnterBtnClick(event) {
-    window.addEventListener('keydown', event => {
-        if(event === 'Enter') {
-            event.preventDefault();
-        }
-    })
+function onEmptyInput(error) {
+  Notify.warning('Change your search query and try again.');
 }
-// window.addEventListener('keydown', e => {
-//     if (e.code === 'Enter') {
-//       e.preventDefault();
-//     }
