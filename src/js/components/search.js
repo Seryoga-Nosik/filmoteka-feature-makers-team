@@ -11,9 +11,15 @@ import 'notiflix/dist/notiflix-3.2.2.min';
 const refs = getRefs();
 const DEBOUNCE_DELAY = 500;
 
-refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+// localStorage.setItem('current-page', 'home');
+const currentPage = localStorage.getItem('current-page');
 
-export async function onSearch(event) { 
+if (currentPage) {
+    refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+}
+
+async function onSearch(event) { 
+    console.log('input')
     
     window.addEventListener('keydown', (e) => {
         if(e.code === 'Enter') {

@@ -7,9 +7,6 @@ import { getMovieId } from '../apiService';
 import watched from '../../template/listFilms.hbs';
 import { renderTrandingFilms } from './gallery';
 import { runSpinner, stopSpinner } from './spinner';
-// import from search
-import { onSearch } from './search';
-import debounce from 'lodash.debounce';
 
 refs.navList.addEventListener('click', onNavItemClick);
 refs.myLibraryLink.addEventListener('click', onMyLibLinkClick);
@@ -39,12 +36,10 @@ function onMyLibLinkClick(event) {
   refs.header.classList.remove('home-header');
   refs.header.classList.add('my-lib-header');
   refs.pagination.classList.add('is-hidden');
-//   refs.searchBox.removeEventListener('blur', onSearch);
 }
 
 function onHomeLinkClick(event) {
   event.preventDefault();
-  refs.searchBox.addEventListener('input', debounce(onSearch, 500));
   refs.header.classList.remove('my-lib-header');
   refs.header.classList.add('home-header');
   refs.pagination.classList.remove('is-hidden');
@@ -52,7 +47,6 @@ function onHomeLinkClick(event) {
 
 function onLogoClick(event) {
   event.preventDefault();
-  refs.searchBox.addEventListener('input', debounce(onSearch, 500));
 
   if (refs.header.classList.contains('my-lib-header')) {
     refs.header.classList.remove('my-lib-header');
