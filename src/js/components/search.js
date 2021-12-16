@@ -11,14 +11,20 @@ import 'notiflix/dist/notiflix-3.2.2.min';
 const refs = getRefs();
 const DEBOUNCE_DELAY = 500;
 
+// localStorage.setItem('current-page', 'home');
+// const currentPage = localStorage.getItem('current-page');
+
+// if (currentPage) {
+//     refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+// }
+
 refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
+
 
 async function onSearch(event) {
   window.addEventListener('keydown', e => {
     if (e.code === 'Enter') {
       e.preventDefault();
-    }
-  });
 
   const inputData = refs.searchBox.value.trim();
 

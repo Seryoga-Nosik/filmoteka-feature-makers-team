@@ -43,6 +43,9 @@ function onHomeLinkClick(event) {
   refs.header.classList.remove('my-lib-header');
   refs.header.classList.add('home-header');
   refs.pagination.classList.remove('is-hidden');
+
+  checkCurrentPage();
+  document.location.reload();
 }
 
 function onLogoClick(event) {
@@ -56,6 +59,7 @@ function onLogoClick(event) {
   refs.myLibraryLink.classList.remove('is-current');
 
   checkCurrentPage();
+  document.location.reload();
   renderTrandingFilms();
 }
 
